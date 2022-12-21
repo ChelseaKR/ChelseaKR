@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @ChelseaKR
+- 👀 I’m interested in people, places, and things
+- 🏳️‍⚧️ idk, go to [my website](https://chelseakr.com/) if you want to know about me
+- 🌱 Here's another emoji
+- 🧮 Maybe I'll update this `README.md` someday, but probably not
