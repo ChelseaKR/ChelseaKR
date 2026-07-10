@@ -27,4 +27,6 @@ Based in Davis, CA. Site: [chelseakr.com](https://chelseakr.com) · [LinkedIn](h
 
 ---
 
+Built through AI-agent-orchestrated development against a self-authored standards corpus (accessibility, privacy, security, honesty-in-claims), with human review gated on legal/SME/accessibility sign-off before anything ships.
+
 Actively building since June 2026 — more of what's in progress will land here as it clears review.
