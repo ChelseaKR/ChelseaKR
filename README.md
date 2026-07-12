@@ -34,6 +34,7 @@ Based in Davis, CA. Site: [chelseakr.com](https://chelseakr.com) · [LinkedIn](h
 #### Personal systems & infrastructure
 
 - **[personal-site](https://github.com/ChelseaKR/personal-site)** — Live bilingual portfolio and consulting-services site with WCAG 2.2 AAA checks, static prerendering, cookieless analytics, and a serverless AWS Bedrock chat backend.
+- **[queer-the-stacks](https://github.com/ChelseaKR/queer-the-stacks)** — Private-by-design, self-hosted reading dashboard and explainable recommender for Calibre and KOReader, with diverse-shelf analytics, reading goals and streaks, and shareable progress cards.
 - **[family-greenhouse](https://github.com/ChelseaKR/family-greenhouse)** — Released household plant-care app (React/TypeScript PWA plus native iOS/Android) with shared schedules and care history, multimodal reminders, photo-based plant identification, Stripe subscription tiers, a public API, and a serverless AWS architecture.
 
 ---
