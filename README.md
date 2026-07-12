@@ -1,46 +1,41 @@
-### Hi, I'm Chelsea 🏳️‍⚧️
+# Hi, I'm Chelsea 🏳️‍⚧️
 
-I build public-interest technology for people who need systems to be legible, trustworthy, and usable under real constraints. My work spans open standards, transit data, community evidence, environmental sensing, and nonprofit infrastructure.
+I'm a public-interest software engineer building trustworthy data systems for transit agencies, nonprofits, and communities, mainly in Python and TypeScript.
 
-Across those domains, I use the same engineering discipline: verifiable claims instead of green-checkmark theater, accessibility (WCAG 2.2) as a baseline, privacy-by-design for sensitive data, and explicit limits on what a system proves.
+I design for real constraints: accessible interfaces, privacy by design, reproducible evidence, fail-closed checks, and explicit limits on what a system can prove.
 
-Based in Davis, CA. Site: [chelseakr.com](https://chelseakr.com) · [LinkedIn](https://linkedin.com/in/chelseakr)
+Based in Davis, California · [Portfolio & consulting](https://chelseakr.com) · [LinkedIn](https://linkedin.com/in/chelseakr)
 
----
+## Selected work
 
-#### Open-source standards work
+> This independent R&D portfolio began in June 2026. Unless marked otherwise, projects are pre-1.0 beta or reference implementations; each repository documents its evidence, known limits, and review or deployment gates.
 
-- **[Transit Operational Data Standard](https://github.com/MobilityData/transit-operational-data-standard)** — Contributor to the open standard; author of the independent **[tods-validate](https://github.com/ChelseaKR/tods-validate)** validator, spanning TODS v1.0.0–v2.1.0 and released as a CLI, GitHub Action, pre-commit hook, browser playground, VS Code client, and Docker image.
+### Open standards, transit & safe streets
 
-#### Transit, mobility & safe streets
+- **[tods-validate](https://github.com/ChelseaKR/tods-validate)** — [TODS](https://github.com/MobilityData/transit-operational-data-standard) v1.0.0–v2.1.0 validator for command-line, GitHub Actions, pre-commit, browser, and Docker workflows, with LSP support. I also contributed a [merged fix](https://github.com/MobilityData/transit-operational-data-standard/pull/147) upstream.
+- **[gtfs-scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** — Live beta with plain-language quality scorecards for 1,100+ U.S. and Canadian GTFS feeds and GTFS-Realtime monitoring where available, powered by MobilityData's validator and a fail-closed CI gate. [Visit gtfsscorecard.org](https://gtfsscorecard.org).
+- **[nearmiss](https://github.com/ChelseaKR/nearmiss)** — Reference implementation for reproducible road-hazard analysis, demonstrated with synthetic Davis and Riverside data and known-answer hotspot benchmarks; includes multi-source ingestion and a QGIS plugin.
+- **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** — California reduced-fare reference assistant designed to answer in EN/ES from dated, cited sources, with a public 201-case evaluation across nine suites.
+- **[davis-bike-hazard-map](https://github.com/ChelseaKR/davis-bike-hazard-map)** — Private-beta, offline-first hazard reporting and safer routing for Davis cyclists, with privacy-preserving photos, saved-route alerts, moderation, and Open311/GOGov handoff.
 
-- **[gtfs-scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** — Live, plain-language GTFS and GTFS-Realtime quality scorecards for 1,100+ US and Canadian feeds, backed by the MobilityData validator and a fail-closed CI gate. [Visit gtfsscorecard.org](https://gtfsscorecard.org).
-- **[nearmiss](https://github.com/ChelseaKR/nearmiss)** — Open road-hazard dataset and reproducible safe-streets analysis using exposure-normalized rates, confidence intervals, and benchmark-validated hotspot statistics, with multi-source ingestion (BikeMaps, SimRa) and a QGIS plugin.
-- **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** — Bilingual EN/ES California reduced-fare assistant that answers only from dated, cited sources, with a public 201-case, nine-suite evaluation harness for groundedness, refusal, and multilingual parity.
-- **[davis-bike-hazard-map](https://github.com/ChelseaKR/davis-bike-hazard-map)** — Private-beta, offline-first cycling-hazard PWA with privacy-preserving photo intake, safer routing, push alerts on saved routes, moderation, and handoff to the city's 311 system (Open311/GOGov).
+### Trustworthy civic data & AI
 
-#### Trustworthy civic AI & data systems
+- **[constituent-reconciler](https://github.com/ChelseaKR/constituent-reconciler)** — Offline-first nonprofit record resolution with OCR, probabilistic matching, human review, consent-aware exports, a VAWA/FVPSA privacy pack, and tamper-evident provenance.
+- **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts)** — Reproducible funder reporting: deterministic SQL backs every figure, and a fail-closed grounding gate blocks unreceipted numeric claims. Bilingual exports support keyed signing and a hash-chained ledger; releases carry Sigstore provenance.
 
-- **[constituent-reconciler](https://github.com/ChelseaKR/constituent-reconciler)** — Offline-first nonprofit record-resolution pipeline with OCR, probabilistic matching, a human review gate, consent-aware CiviCRM, Salesforce, and webhook export, a VAWA/FVPSA domestic-violence privacy pack, Docker self-host, and tamper-evident provenance.
-- **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts)** — Funder reports where every figure is reproducible from deterministic SQL and unsupported narrative claims are stopped by a fail-closed grounding gate, with accessible bilingual EN/ES charts and a Sigstore-signed, tamper-evident export bundle.
+### Community evidence & environmental justice
 
-#### Community memory, evidence & environmental justice
+- **[ledger](https://github.com/ChelseaKR/ledger)** — Privacy-first preservation for queer histories and mutual-aid knowledge, using open archival standards, fixity audits, encrypted replication, and consent-based selective disclosure.
+- **[habitable](https://github.com/ChelseaKR/habitable)** — Alpha, local-first evidence system for tenant unions, with end-to-end encryption, RFC 3161 timestamps, hash-linked chain of custody, peer-to-peer sync, reproducible builds, and independently verifiable packets.
+- **[swelter](https://github.com/ChelseaKR/swelter)** — Replicable open-source reference implementation for neighborhood heat and air-quality sensing, with calibration tooling, accessible bilingual maps and alerts, clearly labeled real-data demos, and OGC SensorThings export.
+- **[olive-bark-logger](https://github.com/ChelseaKR/olive-bark-logger)** — Offline noise monitor for Raspberry Pi and the browser, with reference-offset calibration and documented provenance; it records sound-level events—never audio—and produces accessible evidence reports.
 
-- **[ledger](https://github.com/ChelseaKR/ledger)** — Privacy-first archive for queer histories and mutual-aid knowledge, using BagIt, PREMIS, Dublin Core, fixity audits, encrypted replication, OAI-PMH/METS interoperability, and consent-based selective disclosure.
-- **[habitable](https://github.com/ChelseaKR/habitable)** — Alpha, local-first habitability-evidence system for tenant unions with end-to-end encryption, RFC 3161 timestamps, hash-linked chain of custody, peer-to-peer sync, reproducible Sigstore-attested builds, and independently verifiable packets.
-- **[swelter](https://github.com/ChelseaKR/swelter)** — Open-source reference implementation, replicable by any neighborhood, for community heat and air-quality sensing, with calibration, accessible bilingual maps and alerts, real-world demo data, and OGC SensorThings export.
-- **[olive-bark-logger](https://github.com/ChelseaKR/olive-bark-logger)** — On-device noise monitor with rigorous sensor calibration that records sound-level events but never audio, runs offline on Raspberry Pi or in a browser, and produces accessible evidence reports.
+### Personal software & infrastructure
 
-#### Personal systems & infrastructure
+- **[personal-site](https://github.com/ChelseaKR/personal-site)** — Live bilingual portfolio and consulting site with static prerendering, WCAG 2.2 AAA checks, cookieless analytics, and a serverless AWS Bedrock chat backend.
+- **[queer-the-stacks](https://github.com/ChelseaKR/queer-the-stacks)** — Private-by-design reading dashboard and explainable recommender for Calibre and KOReader, with self-hosting, diverse-shelf analytics, and shareable progress cards.
+- **[family-greenhouse](https://github.com/ChelseaKR/family-greenhouse)** — Pre-1.0 React/TypeScript plant-care PWA with a [live web demo](https://familygreenhouse.net), shared schedules and history, reminders, an implemented serverless AWS backend, and buildable Capacitor mobile shells that are not yet store-released.
 
-- **[personal-site](https://github.com/ChelseaKR/personal-site)** — Live bilingual portfolio and consulting-services site with WCAG 2.2 AAA checks, static prerendering, cookieless analytics, and a serverless AWS Bedrock chat backend.
-- **[queer-the-stacks](https://github.com/ChelseaKR/queer-the-stacks)** — Private-by-design, self-hosted reading dashboard and explainable recommender for Calibre and KOReader, with diverse-shelf analytics, reading goals and streaks, and shareable progress cards.
-- **[family-greenhouse](https://github.com/ChelseaKR/family-greenhouse)** — Released household plant-care app (React/TypeScript PWA plus native iOS/Android) with shared schedules and care history, multimodal reminders, photo-based plant identification, Stripe subscription tiers, a public API, and a serverless AWS architecture.
+## How I build
 
----
-
-#### How I build
-
-I use AI agents as implementation collaborators inside a process I design and own: architecture, standards, threat models, evaluations, acceptance criteria, and release decisions. The repositories are built against a self-authored standards corpus covering accessibility, privacy, security, and honesty in claims. Work that needs legal, policy, subject-matter, or manual accessibility review is gated and labeled rather than presented as independently certified.
-
-Most of this independent portfolio has been built in public since June 2026. Each repository states its maturity, evidence, known limits, and what remains before production use.
+I use AI agents as implementation collaborators while retaining responsibility for architecture, standards, threat models, evaluations, acceptance criteria, and release decisions. Legal, policy, subject-matter, and manual accessibility reviews remain human gates and are labeled when pending.
