@@ -1,37 +1,117 @@
-# Hi, I'm Chelsea 🏳️‍⚧️
+# Hi, I'm Chelsea Kelly-Reif 🏳️‍⚧️
 
-I'm a public-interest software engineer building trustworthy data systems for transit agencies, nonprofits, and communities, mainly in Python and TypeScript.
+**Senior Director of Engineering. I lead teams, write code, and build public-interest software.**
 
-I work where delivery, evidence, and public accountability meet: accessible interfaces, privacy by design, reproducible analysis, fail-closed checks, and explicit limits on what a system can prove.
+I lead engineering teams and still work hands-on. At [Coforma](https://coforma.io), I lead a
+23-person group with six direct reports, head the engineering portfolio for health, and work as
+engineering lead and principal engineer for
+[MyCareer.NJ.gov](https://mycareer.nj.gov), a bilingual suite of workforce tools serving 1.7
+million New Jersey residents.
 
-Based in Davis, California · [Portfolio & consulting](https://chelseakr.com) · [LinkedIn](https://linkedin.com/in/chelseakr)
+I've spent the last decade building civic technology. Much of that work is unglamorous but
+important: turning policy into software, fixing messy data, making public services accessible, and
+keeping them secure and reliable. I also work on open data standards, including CTDL for workforce
+credentials and FHIR for health data.
 
-> This independent R&D portfolio began in June 2026. Unless marked otherwise, projects are pre-1.0 beta or reference implementations; each repository documents its evidence, known limits, and review or deployment gates.
+Before Coforma, I built public systems inside California government at the Department of Social
+Services, Energy Commission, and Public Utilities Commission, and led application development at
+UC Berkeley.
 
-## Featured work
+Based in Davis, California · [Portfolio & consulting](https://chelseakr.com) ·
+[LinkedIn](https://linkedin.com/in/chelseakr)
 
-- **[Transit Delivery Atlas](https://github.com/ChelseaKR/transit-delivery-atlas)** — Independent, source-linked crosswalk of 21 California transit directives, with named entities, scoped timing, delivery dependencies, and open questions kept separate from the signed source. [Explore the live atlas](https://transit.chelseakr.com).
-- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** — Live, plain-language quality scorecards for 1,100+ U.S. and Canadian GTFS feeds, with GTFS-Realtime monitoring where available, a fail-closed CI gate, and a read-only MCP server. [Visit gtfsscorecard.org](https://gtfsscorecard.org).
-- **[tods-validate](https://github.com/ChelseaKR/tods-validate)** — TODS v1.0–v2.1 validator for CLI, GitHub Actions, pre-commit, browser, Docker, and LSP workflows, with auto-fix and GTFS drift diagnostics. Includes a [merged upstream standards fix](https://github.com/MobilityData/transit-operational-data-standard/pull/147).
-- **[NearMiss](https://github.com/ChelseaKR/nearmiss)** — Reproducible road-hazard analysis demonstrated with synthetic Davis and Riverside data, known-answer hotspot benchmarks, multi-source ingestion, and a QGIS plugin. [Explore the live project](https://nearmiss.report).
-- **[Fare Policy Assistant](https://github.com/ChelseaKR/fare-policy-assistant)** — Reduced-fare reference assistant for five California transit agencies, designed for cited EN/ES answers with a public 201-case evaluation and a separate black-box audit.
-- **[Swelter](https://github.com/ChelseaKR/swelter)** — Replicable neighborhood heat and air-quality sensing with calibration tooling, accessible bilingual maps and alerts, clearly labeled real-data demos, and OGC SensorThings export. [View the demo](https://chelseakr.github.io/swelter/).
+> I started this independent portfolio in June 2026, on my own time and separate from my employer.
+> Most of these projects are betas or reference implementations. They are not proof of production
+> use or adoption. Each README says what works, what does not, and what still needs human review.
 
-## How I approach the work
+## Projects worth opening
 
-- Keep source facts, calculations, and analytical judgment visibly separate.
-- Make accessibility, privacy, provenance, and correction paths part of the architecture.
-- Prefer reproducible evidence and known-answer tests over persuasive demos.
-- Treat uncertainty and negative findings as product requirements, not footnotes.
+### Transit data, policy, and public delivery
 
-## More public-interest software
+- **[Transit Delivery Atlas](https://github.com/ChelseaKR/transit-delivery-atlas).** A close,
+  source-linked reading of California Executive Order N-7-26. The signed order, my analysis, and
+  unanswered questions are kept separate. [Explore the atlas](https://transit.chelseakr.com).
+- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard).** Live, plain-language quality
+  scorecards for 1,100+ U.S. and Canadian GTFS feeds, with GTFS-Realtime monitoring where available,
+  a fail-closed CI gate, and a read-only MCP server. [Visit gtfsscorecard.org](https://gtfsscorecard.org).
+- **[tods-validate](https://github.com/ChelseaKR/tods-validate).** A published TODS v1.0–v2.1
+  validator for the CLI, GitHub Actions, pre-commit, browser, Docker, and LSP workflows. It includes
+  auto-fix, GTFS drift diagnostics, and a
+  [merged upstream standards correction](https://github.com/MobilityData/transit-operational-data-standard/pull/147).
+- **[Fare Policy Assistant](https://github.com/ChelseaKR/fare-policy-assistant).** A reduced-fare
+  reference assistant for five California transit agencies. It answers in English and Spanish,
+  cites dated sources, and explains policy without deciding whether someone qualifies. The repo
+  includes a public 201-case evaluation and a separate black-box audit.
+- **[NearMiss](https://github.com/ChelseaKR/nearmiss).** Road-hazard analysis that accounts for
+  exposure and uncertainty instead of treating a heat map as evidence. It includes known-answer
+  hotspot tests, multi-source ingestion, and a QGIS plugin. The public demos use synthetic data and
+  say so.
 
-My broader portfolio includes nonprofit record reconciliation, reproducible funder reporting, tenant and community evidence systems, queer digital preservation, environmental monitoring, and privacy-first personal software. [Browse the full portfolio](https://chelseakr.com) or [see all repositories](https://github.com/ChelseaKR?tab=repositories).
+### Evidence, rights, and community control
+
+- **[ID Churn Sentinel](https://github.com/ChelseaKR/id-churn-sentinel).** New and still being
+  verified. It watches 152 candidate sources covering all 50 states, D.C., and federal documents.
+  None of those sources has been human-verified yet. A named person reviews each detected change
+  before it is published. The tool reports source changes, not legal conclusions.
+- **[habitable](https://github.com/ChelseaKR/habitable).** Alpha software for tenant unions to keep
+  encrypted records of habitability problems, with trusted timestamps, chain of custody, and
+  peer-to-peer sync. There is no central store of tenants' personal data. Do not rely on it in a
+  real legal matter yet.
+- **[ledger](https://github.com/ChelseaKR/ledger).** A private community archive for queer history
+  and mutual-aid knowledge. It uses established preservation formats, and contributors choose what
+  is public, community-only, or sealed.
+
+### The rest of the public portfolio
+
+- **For nonprofits:**
+  [constituent-reconciler](https://github.com/ChelseaKR/constituent-reconciler) and
+  [outcome-receipts](https://github.com/ChelseaKR/outcome-receipts).
+- **Community data:**
+  [Davis Bike Hazard Map](https://github.com/ChelseaKR/davis-bike-hazard-map) and
+  [Swelter](https://github.com/ChelseaKR/swelter).
+- **Personal tools that keep their data local:**
+  [Family Greenhouse](https://github.com/ChelseaKR/family-greenhouse),
+  [Olive Bark Logger](https://github.com/ChelseaKR/olive-bark-logger),
+  [Queer the Stacks](https://github.com/ChelseaKR/queer-the-stacks), and
+  [Sprout](https://github.com/ChelseaKR/sprout).
+- **This site:** [chelseakr.com](https://chelseakr.com) is
+  [open-source](https://github.com/ChelseaKR/personal-site), bilingual, and tested against WCAG 2.2
+  AAA criteria.
+
+There is also an
+[archived 2023 Family Greenhouse prototype](https://github.com/ChelseaKR/family-greenhouse-poc) and
+a [TODS fork](https://github.com/ChelseaKR/transit-operational-data-standard) I use for upstream
+standards work. [Browse every public repository](https://github.com/ChelseaKR?tab=repositories).
+
+## What I will and won't work on
+
+- I won't work on weapons or warfare, policing or mass surveillance, or technology that profits
+  from incarceration. I also won't work with organizations based in, or strongly tied to, Israel.
+- I look for organizations whose work helps people routinely failed by public systems, and whose
+  leadership reflects the communities they serve.
+- I won't use AI to decide whether someone gets a job, benefit, service, or opportunity. It can
+  help a person make a decision, but that person should be able to see the evidence, correct bad
+  information, and make the final call.
+- I collect as little personal data as I can. I prefer local and offline tools when they are
+  practical, and I want people to choose what they share.
+- I show sources, calculations, and my own interpretation separately. When a system does not know
+  something, it should say so.
 
 ## How I build
 
-I use AI agents as implementation collaborators while retaining responsibility for architecture, standards, threat models, evaluations, acceptance criteria, and release decisions. Legal, policy, subject-matter, and manual accessibility reviews remain human gates and are labeled when pending.
+I spend most days in Python, TypeScript, React, AWS, and data systems. I like clear boundaries,
+useful logs, known-answer tests, and checks that stop when they cannot prove the result. Privacy,
+accessibility, and operations are part of the first design, not a cleanup pass.
+
+AI agents are part of my development workflow. I choose the architecture, write the acceptance
+criteria, review the output, and own the release. Legal, policy, subject-matter, and manual
+accessibility reviews are done by people.
 
 ## Work with me
 
-I'm especially interested in engineering roles and collaborations involving transit delivery, civic data infrastructure, accessible government technology, and trustworthy AI. For roles, consulting, collaboration, or a thoughtful technical conversation, reach me through [chelseakr.com](https://chelseakr.com) or [LinkedIn](https://linkedin.com/in/chelseakr).
+I'm open to senior engineering leadership, principal-level technical work, consulting, and
+collaboration in civic data, transit, health and workforce systems, accessible government
+technology, and AI whose answers people can inspect and challenge.
+
+Reach me through [chelseakr.com](https://chelseakr.com) or
+[LinkedIn](https://linkedin.com/in/chelseakr).
