@@ -46,10 +46,6 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 
 ### Evidence, rights, and community control
 
-- **[ID Churn Sentinel](https://github.com/ChelseaKR/id-churn-sentinel).** New and still being
-  verified. It watches 152 candidate sources covering all 50 states, D.C., and federal documents.
-  None of those sources has been human-verified yet. A named person reviews each detected change
-  before it is published. The tool reports source changes, not legal conclusions.
 - **[habitable](https://github.com/ChelseaKR/habitable).** Alpha software for tenant unions to keep
   encrypted records of habitability problems, with trusted timestamps, chain of custody, and
   peer-to-peer sync. There is no central store of tenants' personal data. Do not rely on it in a
@@ -67,17 +63,14 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
   [Davis Bike Hazard Map](https://github.com/ChelseaKR/davis-bike-hazard-map) and
   [Swelter](https://github.com/ChelseaKR/swelter).
 - **Personal tools that keep their data local:**
-  [Family Greenhouse](https://github.com/ChelseaKR/family-greenhouse),
   [Olive Bark Logger](https://github.com/ChelseaKR/olive-bark-logger),
   [Queer the Stacks](https://github.com/ChelseaKR/queer-the-stacks), and
   [Sprout](https://github.com/ChelseaKR/sprout).
 - **This site:** [chelseakr.com](https://chelseakr.com) is bilingual, targets WCAG 2.2 AA, and
   documents the additional accessibility checks and manual reviews still in progress.
 
-There is also an
-[archived 2023 Family Greenhouse prototype](https://github.com/ChelseaKR/family-greenhouse-poc) and
-a [TODS fork](https://github.com/ChelseaKR/transit-operational-data-standard) I use for upstream
-standards work. [Browse every public repository](https://github.com/ChelseaKR?tab=repositories).
+There is also a [TODS fork](https://github.com/ChelseaKR/transit-operational-data-standard) I use
+for upstream standards work. [Browse every public repository](https://github.com/ChelseaKR?tab=repositories).
 
 ## What I will and won't work on
 
