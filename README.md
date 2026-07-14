@@ -2,11 +2,9 @@
 
 **Senior Director of Engineering. I lead teams, write code, and build public-interest software.**
 
-I lead engineering teams and still work hands-on. At [Coforma](https://coforma.io), I lead a
-23-person group with six direct reports, head the engineering portfolio for health, and work as
-engineering lead and principal engineer for
-[MyCareer.NJ.gov](https://mycareer.nj.gov), a bilingual suite of workforce tools serving 1.7
-million New Jersey residents.
+I lead engineering teams and still work hands-on. At [Coforma](https://coforma.io), I lead
+engineering managers and individual contributors delivering public-interest digital services. I
+stay close to architecture, accessibility, reliability, and the people doing the work.
 
 I've spent the last decade building civic technology. Much of that work is unglamorous but
 important: turning policy into software, fixing messy data, making public services accessible, and
@@ -17,12 +15,11 @@ Before Coforma, I built public systems inside California government at the Depar
 Services, Energy Commission, and Public Utilities Commission, and led application development at
 UC Berkeley.
 
-Based in Davis, California · [Portfolio & consulting](https://chelseakr.com) ·
+Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 [LinkedIn](https://linkedin.com/in/chelseakr)
 
-> I started this independent portfolio in June 2026, on my own time and separate from my employer.
-> Most of these projects are betas or reference implementations. They are not proof of production
-> use or adoption. Each README says what works, what does not, and what still needs human review.
+> Most projects here are betas or reference implementations. They are not proof of production use
+> or adoption. Each README says what works, what does not, and what still needs human review.
 
 ## Projects worth opening
 
@@ -74,9 +71,8 @@ Based in Davis, California · [Portfolio & consulting](https://chelseakr.com) ·
   [Olive Bark Logger](https://github.com/ChelseaKR/olive-bark-logger),
   [Queer the Stacks](https://github.com/ChelseaKR/queer-the-stacks), and
   [Sprout](https://github.com/ChelseaKR/sprout).
-- **This site:** [chelseakr.com](https://chelseakr.com) is
-  [open-source](https://github.com/ChelseaKR/personal-site), bilingual, and tested against WCAG 2.2
-  AAA criteria.
+- **This site:** [chelseakr.com](https://chelseakr.com) is bilingual, targets WCAG 2.2 AA, and
+  documents the additional accessibility checks and manual reviews still in progress.
 
 There is also an
 [archived 2023 Family Greenhouse prototype](https://github.com/ChelseaKR/family-greenhouse-poc) and
@@ -104,14 +100,14 @@ useful logs, known-answer tests, and checks that stop when they cannot prove the
 accessibility, and operations are part of the first design, not a cleanup pass.
 
 AI agents are part of my development workflow. I choose the architecture, write the acceptance
-criteria, review the output, and own the release. Legal, policy, subject-matter, and manual
-accessibility reviews are done by people.
+criteria, review the output, and decide whether it is ready to release. Legal, policy,
+subject-matter, and manual accessibility reviews are done by people.
 
-## Work with me
+## What I'm looking for
 
-I'm open to senior engineering leadership, principal-level technical work, consulting, and
-collaboration in civic data, transit, health and workforce systems, accessible government
-technology, and AI whose answers people can inspect and challenge.
+I'm interested in W-2 senior engineering leadership roles where I can lead people, stay close to
+the architecture, and build reliable, accessible public-interest technology. My strongest domains
+are energy and utilities, public health, workforce systems, social services, and responsible AI.
 
 Reach me through [chelseakr.com](https://chelseakr.com) or
 [LinkedIn](https://linkedin.com/in/chelseakr).
