@@ -129,3 +129,26 @@ energy and utilities, public health, workforce systems, social services, and res
 
 Reach me through [chelseakr.com](https://chelseakr.com) or
 [LinkedIn](https://linkedin.com/in/chelseakr).
+
+## Standards Conformance
+
+My portfolio repositories are developed against a shared set of engineering standards. This
+repository is documentation only — a profile README — so most of those standards do not apply
+here; they apply (and are declared) in the individual project repositories linked above.
+
+| Standard | Status |
+|---|---|
+| Responsible-Tech Framework | Applies — the "What I will and won't work on" section above is the load-bearing statement; claims about projects are kept honest and dated |
+| Code Quality | N/A — README-only profile repository; no executable source or dependency graph |
+| Security & Supply-Chain | N/A — README-only profile repository; no executable or deployable supply-chain surface (reporting channel in [SECURITY.md](SECURITY.md)) |
+| CI/CD | N/A — GitHub-rendered profile README; no build, deployment, or versioned artifact |
+| Observability | N/A — no runtime service or application surface |
+| Accessibility | N/A — no owned HTML surface; content is rendered by GitHub |
+| Internationalization | N/A — personal profile content, not a civic/public-service user workflow (see [docs/I18N.md](docs/I18N.md)) |
+| AI Evaluation | N/A — no LLM/model component |
+| Documentation | Applies — this README, [CHANGELOG.md](CHANGELOG.md), [SECURITY.md](SECURITY.md), and the ADR log in [docs/adr/](docs/adr/) |
+| Quality & Metrics | N/A — no executable product or service metrics |
+| Release & Versioning | N/A — no versioned artifact is released from the profile repository (see [ADR 0001](docs/adr/0001-no-release-and-versioning-process.md)) |
+
+CITATION.cff — N/A (profile README; nothing citable). Prose checks run via `make verify`
+(markdownlint) and the matching pre-commit hook.
