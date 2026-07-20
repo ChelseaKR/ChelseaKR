@@ -1,0 +1,12 @@
+# Markdown is the only artifact in this profile repository, so the only hook is
+# the same markdownlint run that `make verify` performs.
+# Install with: pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: markdownlint
+        name: markdownlint (markdownlint-cli2)
+        entry: npx --yes markdownlint-cli2@0.18.1
+        language: system
+        types: [markdown]
+        pass_filenames: false
