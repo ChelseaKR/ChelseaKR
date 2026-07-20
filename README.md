@@ -1,5 +1,8 @@
 # Hi, I'm Chelsea Kelly-Reif 🏳️‍⚧️
 
+![Python][b-py] ![TypeScript][b-ts] ![React][b-react] ![AWS][b-aws] ![PostgreSQL][b-pg]
+![Trans rights are human rights][b-trans]
+
 **Senior Director of Engineering. I lead teams, write code, and build public-interest software.**
 
 At [Coforma](https://coforma.io), I lead a 23-person engineering structure with six direct reports,
@@ -17,13 +20,19 @@ credentials and FHIR for health data.
 
 Before Coforma, I built public systems inside California government at the Department of Social
 Services, Energy Commission, and Public Utilities Commission, and led application development at
-UC Berkeley.
+UC Berkeley. I hold an M.S. in Software Engineering from CSU Fullerton, completed while working
+full-time in state government, and a B.S. in Computer Science from the University of Oregon.
 
 Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 [LinkedIn](https://linkedin.com/in/chelseakr)
 
 > Most projects here are betas or reference implementations. They are not proof of production use
 > or adoption. Each README says what works, what does not, and what still needs human review.
+
+Shipped and self-updating — these badges report live state, not claims:
+[![tods-validate on PyPI][b-pypi]][l-pypi]
+[![GTFS Scorecard Action release][b-action]][l-action]
+[![gtfsscorecard.org status][b-site]][l-site]
 
 ## Projects worth opening
 
@@ -73,20 +82,34 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
   every figure carries its SQL, row count, data-slice hash, definition, and timestamp. Its offline
   default refuses ungrounded numbers, requires named human approval, and emits verifiable bundles.
   The included small-cell suppression settings are an example policy, not a compliance determination.
+- **[Women-Artist Discovery](https://github.com/ChelseaKR/women-artist-discovery).** A beta,
+  local-first music recommender that surfaces women (cis and trans — explicitly), nonbinary, and
+  female-fronted artists. Identity comes only from cited self-identification sources, never
+  inference — a merge-blocking test enforces this — and "unknown" is a first-class answer that
+  never down-ranks an artist. Every pick shows its signals, identity basis, and provenance beside
+  a live fairness and exposure panel. The public demo runs on a labeled synthetic world; live
+  Last.fm orchestration is still deferred.
 
 ### Evidence, rights, and community control
 
+- **[ID Churn Sentinel](https://github.com/ChelseaKR/id-churn-sentinel).** Cited, machine-checkable
+  change detection for US transgender identity-document law and process. A technical alpha that
+  watches 152 registry-claimed government source candidates across all 50 states, D.C., and
+  federal agencies; a named human reviews every detected change before publication. None of the
+  152 sources is human-verified yet, and the published site says so next to every entry. It
+  reports that a page changed — never what the law is.
 - **[habitable](https://github.com/ChelseaKR/habitable).** A working alpha reference implementation
   for tenant unions to keep encrypted habitability records with RFC 3161 timestamps, chain of
-  custody, peer-to-peer sync, an English and Spanish local web app, and independently verifiable packets.
-  There is no central store of tenants' personal data. It has not had an independent security or
-  legal review or a real tenant-union pilot, so do not rely on it in a real legal matter yet.
+  custody, peer-to-peer sync, an English and Spanish local web app, and independently verifiable
+  packets. There is no central store of tenants' personal data. It has not had an independent
+  security or legal review or a real tenant-union pilot, so do not rely on it in a real legal
+  matter yet.
 - **[ledger](https://github.com/ChelseaKR/ledger).** A private community archive for queer history
   and mutual-aid knowledge. It uses established preservation formats, revocable consent, and
   synthetic identity-leak tests. It has not had an independent security or cryptography audit and
   should not yet hold high-stakes records.
 
-### Climate, community data, and product systems
+### Climate, environment, community data, and product systems
 
 - **[Swelter](https://github.com/ChelseaKR/swelter).** A maintained reference implementation for
   neighborhood heat and air-quality sensing. Its English and Spanish dashboard shows daily
@@ -97,6 +120,18 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 - **[Davis Bike Hazard Map](https://github.com/ChelseaKR/davis-bike-hazard-map).** A private-beta,
   offline-first cycling-hazard PWA with privacy-preserving photo intake, safer routing, saved-route
   alerts, moderation, and handoff to the city's 311 system.
+- **[CEQA Preflight](https://github.com/ChelseaKR/ceqa-preflight).** An early-stage (pre-alpha),
+  local-first CLI that checks the technical readiness of CEQA Submit filing packages with
+  deterministic, source-cited advisory findings. It never uploads or alters documents and does not
+  determine legal sufficiency. NOD- and NOE-specific rules are experimental and opt-in while
+  official-source review, practitioner review, and a permissioned pilot complete. It is an
+  independent project, not affiliated with the State of California.
+- **[ReuseProof CA Core](https://github.com/ChelseaKR/reuseproof-ca-core).** An open-source,
+  deterministic evidence-domain core for California onsite treated nonpotable water (OTNWS)
+  programs under the 2026 Title 22 regulations. It assembles traceable permit, monitoring, and
+  reporting evidence, fails closed on ambiguous or incomplete data, and never makes compliance
+  determinations. The public repository ships a synthetic, headless domain foundation only — no
+  hosted deployment and no real jurisdiction data.
 - **[Family Greenhouse](https://github.com/ChelseaKR/family-greenhouse).** A React and TypeScript
   household plant-care PWA with Capacitor mobile shells and a serverless AWS backend. Commercial
   activity is on hold: it remains a technical demonstration and is not accepting new registrations
@@ -104,8 +139,8 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 - **Personal tools that keep their data local:**
   [Olive Bark Logger](https://github.com/ChelseaKR/olive-bark-logger) and
   [Queer the Stacks](https://github.com/ChelseaKR/queer-the-stacks).
-- **This site:** [chelseakr.com](https://chelseakr.com) offers an English interface and a Spanish
-  translation. I am not bilingual. Accessibility checks run in CI, while manual
+- **My personal site:** [chelseakr.com](https://chelseakr.com) offers an English interface and a
+  Spanish translation. I am not bilingual. Accessibility checks run in CI, while manual
   assistive-technology review and external conformance review remain separate human gates.
 
 There is also a [TODS fork](https://github.com/ChelseaKR/transit-operational-data-standard) I use
@@ -135,6 +170,20 @@ AI agents are part of my development workflow. I choose the architecture, write 
 criteria, review the output, and decide whether it is ready to release. Legal, policy,
 subject-matter, and manual accessibility reviews are done by people.
 
+Even my job search is engineered. A private serverless AWS tool polls 500+ organizations' direct
+ATS job boards, scores postings against my background with a two-pass Bedrock pipeline gated by a
+prompt-injection regression suite, and screens out organizations that conflict with the values
+above. It is a personal, single-user tool, and I describe it that way.
+
+## Recognition
+
+MyCareer.NJ.gov, the platform I lead engineering for, has been featured by Fast Company (2024) and
+the Royal Statistical Society's Real World Data Science (2024). The Harvard Kennedy School's
+Project on Workforce cited its Training Explorer as a "promising potential model" (2023),
+Credential Engine features its CTDL credential publishing, and it was a NASWA Workforce Innovation
+Award nominee. I spoke on how AI/ML will impact fedtech and civic tech at a Digital Services
+Coalition round table (2023).
+
 ## What I'm looking for
 
 I'm interested in W-2 engineering people-management roles—VP, Head of Engineering, Director, or
@@ -145,25 +194,15 @@ energy and utilities, public health, workforce systems, social services, and res
 Reach me through [chelseakr.com](https://chelseakr.com) or
 [LinkedIn](https://linkedin.com/in/chelseakr).
 
-## Standards Conformance
-
-My portfolio repositories are developed against a shared set of engineering standards. This
-repository is documentation only — a profile README — so most of those standards do not apply
-here; they apply (and are declared) in the individual project repositories linked above.
-
-| Standard | Status |
-|---|---|
-| Responsible-Tech Framework | Applies — the "What I will and won't work on" section above is the load-bearing statement; claims about projects are kept honest and dated |
-| Code Quality | N/A — README-only profile repository; no executable source or dependency graph |
-| Security & Supply-Chain | N/A — README-only profile repository; no executable or deployable supply-chain surface (reporting channel in [SECURITY.md](SECURITY.md)) |
-| CI/CD | N/A — GitHub-rendered profile README; no build, deployment, or versioned artifact |
-| Observability | N/A — no runtime service or application surface |
-| Accessibility | N/A — no owned HTML surface; content is rendered by GitHub |
-| Internationalization | N/A — personal profile content, not a civic/public-service user workflow (see [docs/I18N.md](docs/I18N.md)) |
-| AI Evaluation | N/A — no LLM/model component |
-| Documentation | Applies — this README, [CHANGELOG.md](CHANGELOG.md), [SECURITY.md](SECURITY.md), and the ADR log in [docs/adr/](docs/adr/) |
-| Quality & Metrics | N/A — no executable product or service metrics |
-| Release & Versioning | N/A — no versioned artifact is released from the profile repository (see [ADR 0001](docs/adr/0001-no-release-and-versioning-process.md)) |
-
-CITATION.cff — N/A (profile README; nothing citable). Prose checks run via `make verify`
-(markdownlint) and the matching pre-commit hook.
+[b-py]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white
+[b-ts]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white
+[b-react]: https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB
+[b-aws]: https://img.shields.io/badge/AWS-232F3E?logo=amazonwebservices&logoColor=white
+[b-pg]: https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white
+[b-trans]: https://img.shields.io/badge/trans_rights-are_human_rights-F5A9B8?labelColor=5BCEFA
+[b-pypi]: https://img.shields.io/pypi/v/tods-validate?label=tods-validate
+[l-pypi]: https://pypi.org/project/tods-validate/
+[b-action]: https://img.shields.io/github/v/release/ChelseaKR/gtfs-scorecard?label=gtfs-scorecard
+[l-action]: https://github.com/ChelseaKR/gtfs-scorecard/releases
+[b-site]: https://img.shields.io/website?url=https%3A%2F%2Fgtfsscorecard.org&label=gtfsscorecard.org
+[l-site]: https://gtfsscorecard.org
