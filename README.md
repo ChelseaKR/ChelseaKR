@@ -129,6 +129,29 @@ responsible AI.
 Reach me through [chelseakr.com](https://chelseakr.com) or
 [LinkedIn](https://linkedin.com/in/chelseakr).
 
+## Repository scope and standards conformance
+
+This repository is the source for a GitHub-rendered profile, not a software
+product. Its standards register keeps that distinction explicit:
+
+| Standard | Status |
+|---|---|
+| Responsible-Tech Framework | Applies — public professional claims should remain accurate, bounded, and attributable |
+| Code Quality | N/A — README-only repository with no executable source or dependency graph |
+| Security & Supply-Chain | N/A — no executable or deployable supply-chain surface |
+| CI/CD | N/A — GitHub renders the README directly; there is no build or deployment |
+| Observability | N/A — no runtime service |
+| Accessibility | N/A — no owned HTML surface; rendering is controlled by GitHub |
+| Internationalization | N/A — personal profile content, not a civic-service workflow |
+| AI Evaluation | N/A — no model or AI component |
+| Documentation | Applies — the profile README is the repository's public artifact |
+| Quality & Metrics | N/A — no executable product or service metrics |
+| Release & Versioning | N/A — the profile changes in place and publishes no artifact |
+| Performance | N/A — no runtime surface |
+| Incident Response | N/A — no code or service surface |
+| Data Governance | N/A — L0; no data beyond the profile text itself |
+| AI Development Measurement | N/A — no development stream to measure |
+
 [b-py]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white
 [b-ts]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white
 [b-react]: https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB
