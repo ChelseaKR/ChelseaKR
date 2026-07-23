@@ -34,6 +34,23 @@ Shipped and self-updating — these badges report live state, not claims:
 [![GTFS Scorecard Action release][b-action]][l-action]
 [![gtfsscorecard.org status][b-site]][l-site]
 
+## Open-source projects inviting use and contribution
+
+These are the projects where I am currently looking for adopters, corrections,
+and outside contributors. Other public repositories below may be research,
+reference implementations, private betas, or supporting infrastructure rather
+than active adoption projects.
+
+- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard):** check a
+  public transit feed, add or correct an agency, or help test the
+  alert-to-verified-closure workflow.
+- **[tods-validate](https://github.com/ChelseaKR/tods-validate):** validate a
+  TODS feed in the browser or CLI, add the validator to CI, or contribute a
+  spec-cited rule and fixture.
+- **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts):** run the
+  five-minute synthetic demo, test whether the evidence trail is understandable,
+  or bring an anonymized metric-mapping question.
+
 ## Projects worth opening
 
 ### Transit data, policy, and public delivery
