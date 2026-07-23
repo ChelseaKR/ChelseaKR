@@ -29,6 +29,23 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 > Most projects here are betas or reference implementations. They are not proof of production use
 > or adoption. Each README says what works, what does not, and what still needs human review.
 
+## Open-source projects inviting use and contribution
+
+These are the projects where I am currently looking for adopters, corrections,
+and outside contributors. Other public repositories may be research, reference
+implementations, private betas, or supporting infrastructure rather than active
+adoption projects.
+
+- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard):** check a
+  public transit feed, add or correct an agency, or help test the
+  alert-to-verified-closure workflow.
+- **[tods-validate](https://github.com/ChelseaKR/tods-validate):** validate a
+  TODS feed in the browser or CLI, add the validator to CI, or contribute a
+  spec-cited rule and fixture.
+- **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts):** run the
+  five-minute synthetic demo, test whether the evidence trail is understandable,
+  or bring an anonymized metric-mapping question.
+
 ## What I will and won't work on
 
 - I won't work on weapons or warfare, policing or mass surveillance, or technology that profits
