@@ -1,7 +1,9 @@
 # Hi, I'm Chelsea Kelly-Reif 🏳️‍⚧️
 
 ![Python][b-py] ![TypeScript][b-ts] ![React][b-react] ![AWS][b-aws] ![PostgreSQL][b-pg]
-![Trans rights are human rights][b-trans]
+![Public systems engineering leadership][b-public-systems]
+![Accessibility built in][b-accessibility] ![AI evidence and human review][b-ai-review]
+![Open to W-2 engineering leadership][b-open-to] ![Trans rights are human rights][b-trans]
 
 **Engineering leader for public systems. I build teams, portfolios, and the technical foundations
 those teams need to deliver.**
@@ -135,4 +137,8 @@ Reach me at [chelseakr.com](https://chelseakr.com) or on
 [b-react]: https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB
 [b-aws]: https://img.shields.io/badge/AWS-232F3E?logo=amazonwebservices&logoColor=white
 [b-pg]: https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white
+[b-public-systems]: https://img.shields.io/badge/public_systems-engineering_leadership-0F766E.png
+[b-accessibility]: https://img.shields.io/badge/accessibility-built_in-2563EB.png
+[b-ai-review]: https://img.shields.io/badge/AI-evidence_%2B_human_review-7C3AED.png
+[b-open-to]: https://img.shields.io/badge/open_to-W--2_engineering_leadership-0A7D39.png
 [b-trans]: https://img.shields.io/badge/trans_rights-are_human_rights-F5A9B8?labelColor=5BCEFA
