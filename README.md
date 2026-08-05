@@ -142,6 +142,9 @@ AI.
 Reach me at [chelseakr.com](https://chelseakr.com) or on
 [LinkedIn](https://linkedin.com/in/chelseakr).
 
+If any of this has been useful to you, you can
+<a href='https://ko-fi.com/T6T6GMYTU' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 [b-py]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white
 [b-ts]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white
 [b-react]: https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB
