@@ -70,17 +70,27 @@ shipped, what remains experimental, and what still requires human review.
   the Transit Operational Data Standard. Version 0.8.0 is on PyPI, and the project ships a GitHub
   Action, container image, pre-commit hook, and browser playground.
 - **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** is a live transit-data-quality
-  service covering a curated registry of 1,700+ feed records and 1,100+ published scorecards. It
+  service covering a curated registry of 2,100+ feed records and 1,100+ published scorecards. It
   also ships a GitHub Marketplace Action and a read-only MCP server.
 - **[NearMiss](https://github.com/ChelseaKR/nearmiss)** is a beta road-safety analysis toolkit that
   uses exposure-normalized rates, confidence intervals, and statistically controlled hotspot
   detection instead of treating raw report density as risk.
-- **[Swelter](https://github.com/ChelseaKR/swelter)** is an alpha reference system for community
+- **[Swelter](https://github.com/ChelseaKR/swelter)** is a beta reference system for community
   heat and air quality, with correction provenance, a bilingual dashboard, and OGC SensorThings
   exports.
 - **[ledger](https://github.com/ChelseaKR/ledger)** is a beta, privacy-first digital-preservation
   tool using BagIt, PREMIS, Dublin Core, encrypted contributor identities, and consent-based
   disclosure. It contains synthetic and consented fixtures only.
+- **[Camino](https://github.com/ChelseaKR/camino)** joins 3,266 California training programs to
+  the state's own occupation and wage projections, built entirely from public federal and state
+  data, with no account, no tracking, and English and Spanish from the first release.
+- **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts)** is a beta tool for
+  nonprofit funder reports where every figure carries a receipt: a deterministic query, a
+  data-slice hash, and a fail-closed grounding gate that blocks export if a number cannot be
+  traced to evidence.
+- **[habitable](https://github.com/ChelseaKR/habitable)** is an alpha, offline-first tool for
+  tenant unions that makes habitability evidence tamper-evident with content hashes and RFC 3161
+  timestamps, then syncs peer-to-peer with no central server.
 
 ## How I lead and build
 
