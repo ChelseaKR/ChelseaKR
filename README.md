@@ -27,9 +27,9 @@ That work stayed close to outcomes:
 
 On MyCareer.NJ.gov, I led the platform and set architecture across its three production codebases.
 The work included a zero-downtime GCP-to-AWS migration, test coverage raised from zero to 93–96%, a
-94% reduction in known vulnerabilities, complete English and Spanish access, and CTDL publishing
-that made New Jersey training credentials interoperable with the national Credential Engine
-ecosystem.
+94% reduction in known vulnerabilities, complete English and Spanish access, and the 2023 CTDL
+data modeling that began New Jersey's migration of its training program registry into the national
+Credential Engine ecosystem, where those programs are live today.
 
 I also designed its shared applied-AI foundation and six primary proof-of-concept features. The
 foundation is now live in production; the features remained gated from end users pending pilot
@@ -82,6 +82,12 @@ shipped, what remains experimental, and what still requires human review.
 - **[fhir-scorecard](https://github.com/ChelseaKR/fhir-scorecard)** grades payer FHIR discovery
   endpoints daily under the CMS interoperability rules, findings tied to the specification text
   they read, drift tracked between runs. Unauthenticated surfaces only, never patient data.
+- **[Afterward](https://github.com/ChelseaKR/afterward)** (formerly Camino, live at
+  [afterward.chelseakr.com](https://afterward.chelseakr.com)) joins 3,266 California training
+  programs to their federally reported outcomes and the state's occupation and wage projections,
+  built entirely from public data. Roughly a third publish no outcome data, and the site says so
+  rather than rendering an absence as a zero. No account, no tracking, English and Spanish from
+  the first release.
 - **[NearMiss](https://github.com/ChelseaKR/nearmiss)** is a beta road-safety analysis toolkit that
   uses exposure-normalized rates, confidence intervals, and statistically controlled hotspot
   detection instead of treating raw report density as risk.
@@ -91,12 +97,6 @@ shipped, what remains experimental, and what still requires human review.
 - **[ledger](https://github.com/ChelseaKR/ledger)** is a beta, privacy-first digital-preservation
   tool using BagIt, PREMIS, Dublin Core, encrypted contributor identities, and consent-based
   disclosure. It contains synthetic and consented fixtures only.
-- **[Afterward](https://github.com/ChelseaKR/afterward)** (formerly Camino, live at
-  [afterward.chelseakr.com](https://afterward.chelseakr.com)) joins 3,266 California training
-  programs to their federally reported outcomes and the state's occupation and wage projections,
-  built entirely from public data. Roughly a third publish no outcome data, and the site says so
-  rather than rendering an absence as a zero. No account, no tracking, English and Spanish from
-  the first release.
 - **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts)** is a beta tool for
   nonprofit funder reports where every figure carries a receipt: a deterministic query, a
   data-slice hash, and a fail-closed grounding gate that blocks export if a number cannot be
