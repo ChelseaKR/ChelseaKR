@@ -3,7 +3,7 @@
 ![Python][b-py] ![TypeScript][b-ts] ![React][b-react] ![AWS][b-aws] ![PostgreSQL][b-pg]
 ![Public systems engineering leadership][b-public-systems]
 ![Accessibility built in][b-accessibility] ![AI evidence and human review][b-ai-review]
-![Open to W-2 engineering leadership][b-open-to] ![Trans rights are human rights][b-trans]
+![Open to engineering leadership and consulting][b-open-to] ![Trans rights are human rights][b-trans]
 
 **Engineering leader for public systems. I build teams, portfolios, and the technical foundations
 those teams need to deliver.**
@@ -17,8 +17,6 @@ That work stayed close to outcomes:
 
 - Nine engineers moved into senior or leadership roles, including four promotions to Director or
   Principal. My teams had three voluntary departures across three years.
-- I supported $150M+ in federal contract wins in 2024 at a 70%+ win rate and held delivery
-  responsibility for $100M+ in awarded prime contracts.
 - I owned engineering for the seven-application CMS Medicaid & CHIP Data Collection Tools suite,
   oversaw Coforma's work on the federal Medicaid Drug Programs system, and led the firm's FHIR and
   health data interoperability specialization.
@@ -70,8 +68,20 @@ shipped, what remains experimental, and what still requires human review.
   the Transit Operational Data Standard. Version 0.8.0 is on PyPI, and the project ships a GitHub
   Action, container image, pre-commit hook, and browser playground.
 - **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** is a live transit-data-quality
-  service covering a curated registry of 2,100+ feed records and 1,100+ published scorecards. It
-  also ships a GitHub Marketplace Action and a read-only MCP server.
+  service covering a curated registry of 2,185 feed records, 2,182 of them with published
+  scorecards as of August 2026. It also ships a GitHub Marketplace Action and a read-only MCP
+  server.
+- **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
+  validator for CTDL JSON-LD, the national credential-data standard: CTID grammar, identifier
+  kinds, reference resolution, domain and range, and inverse consistency, with every finding
+  cited to the published schema.
+- **[disclosed](https://github.com/ChelseaKR/disclosed)** grades US higher-education institutions
+  on what they disclose rather than how they perform, across the complete 6,163-institution IPEDS
+  directory and a 600-institution College Scorecard sample, with applicability rules that keep
+  denominators honest.
+- **[fhir-scorecard](https://github.com/ChelseaKR/fhir-scorecard)** grades payer FHIR discovery
+  endpoints daily under the CMS interoperability rules, findings tied to the specification text
+  they read, drift tracked between runs. Unauthenticated surfaces only, never patient data.
 - **[NearMiss](https://github.com/ChelseaKR/nearmiss)** is a beta road-safety analysis toolkit that
   uses exposure-normalized rates, confidence intervals, and statistically controlled hotspot
   detection instead of treating raw report density as risk.
@@ -81,9 +91,12 @@ shipped, what remains experimental, and what still requires human review.
 - **[ledger](https://github.com/ChelseaKR/ledger)** is a beta, privacy-first digital-preservation
   tool using BagIt, PREMIS, Dublin Core, encrypted contributor identities, and consent-based
   disclosure. It contains synthetic and consented fixtures only.
-- **[Camino](https://github.com/ChelseaKR/camino)** joins 3,266 California training programs to
-  the state's own occupation and wage projections, built entirely from public federal and state
-  data, with no account, no tracking, and English and Spanish from the first release.
+- **[Afterward](https://github.com/ChelseaKR/afterward)** (formerly Camino, live at
+  [afterward.chelseakr.com](https://afterward.chelseakr.com)) joins 3,266 California training
+  programs to their federally reported outcomes and the state's occupation and wage projections,
+  built entirely from public data. Roughly a third publish no outcome data, and the site says so
+  rather than rendering an absence as a zero. No account, no tracking, English and Spanish from
+  the first release.
 - **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts)** is a beta tool for
   nonprofit funder reports where every figure carries a receipt: a deterministic query, a
   data-slice hash, and a fail-closed grounding gate that blocks export if a number cannot be
@@ -133,8 +146,9 @@ Services Coalition roundtable on AI and machine learning in federal and civic te
 
 ## What I'm looking for
 
-I'm interested in W-2 engineering leadership roles: VP of Engineering, Head of Engineering, Senior
-Director, Director, or Principal Engineering Manager. I want to lead teams and managers, shape
+I'm interested in engineering leadership roles (VP of Engineering, Head of Engineering, Senior
+Director, Director, or Principal Engineering Manager) and independent consulting engagements in
+the same domains while I search. I want to lead teams and managers, shape
 architecture and delivery systems, and build reliable, accessible technology in public health,
 workforce and social services, energy and utilities, government digital services, or responsible
 AI.
@@ -150,5 +164,5 @@ Reach me at [chelseakr.com](https://chelseakr.com) or on
 [b-public-systems]: https://img.shields.io/badge/public_systems-engineering_leadership-0F766E.png
 [b-accessibility]: https://img.shields.io/badge/accessibility-built_in-2563EB.png
 [b-ai-review]: https://img.shields.io/badge/AI-evidence_%2B_human_review-7C3AED.png
-[b-open-to]: https://img.shields.io/badge/open_to-W--2_engineering_leadership-0A7D39.png
+[b-open-to]: https://img.shields.io/badge/open_to-engineering_leadership_%2B_consulting-0A7D39.png
 [b-trans]: https://img.shields.io/badge/trans_rights-are_human_rights-F5A9B8?labelColor=5BCEFA
