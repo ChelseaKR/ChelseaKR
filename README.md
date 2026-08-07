@@ -52,7 +52,7 @@ Before Coforma, I built public systems in California state government and public
   equity-focused 21st Century California School Leadership Academy.
 
 I hold an M.S. in Software Engineering from CSU Fullerton, which I completed while working
-full-time in state government. I also hold a B.S. in Computer Science from the University of Oregon
+full-time. I also hold a B.S. in Computer Science from the University of Oregon
 and an ITIL Foundation certification.
 
 Based in Davis, California · [Portfolio](https://chelseakr.com) ·
@@ -66,11 +66,13 @@ shipped, what remains experimental, and what still requires human review.
 
 - **[tods-validate](https://github.com/ChelseaKR/tods-validate)** is a deterministic validator for
   the Transit Operational Data Standard. Version 0.8.0 is on PyPI, and the project ships a GitHub
-  Action, container image, pre-commit hook, and browser playground.
-- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** is a live transit-data-quality
-  service covering a curated registry of 2,185 feed records, 2,182 of them with published
-  scorecards as of August 2026. It also ships a GitHub Marketplace Action and a read-only MCP
-  server.
+  Action, container image, pre-commit hook, and
+  [browser playground](https://chelseakr.github.io/tods-validate/).
+- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
+  [gtfsscorecard.org](https://gtfsscorecard.org)) is a transit-data-quality service covering a
+  curated registry of 2,185 feed records, 2,182 of them with published scorecards as of August
+  2026; its status page reports the exact current counts. It also ships a GitHub Marketplace
+  Action and a read-only MCP server.
 - **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
   validator for CTDL JSON-LD, the national credential-data standard: CTID grammar, identifier
   kinds, reference resolution, domain and range, and inverse consistency, with every finding
@@ -80,20 +82,21 @@ shipped, what remains experimental, and what still requires human review.
   directory and a 600-institution College Scorecard sample, with applicability rules that keep
   denominators honest.
 - **[fhir-scorecard](https://github.com/ChelseaKR/fhir-scorecard)** grades payer FHIR discovery
-  endpoints daily under the CMS interoperability rules, findings tied to the specification text
-  they read, drift tracked between runs. Unauthenticated surfaces only, never patient data.
+  endpoints daily under the CMS interoperability rules, every finding citing the specification
+  text or the stated convention it applies, drift tracked between runs. Unauthenticated surfaces
+  only, never patient data.
 - **[Afterward](https://github.com/ChelseaKR/afterward)** (formerly Camino, live at
   [afterward.chelseakr.com](https://afterward.chelseakr.com)) joins 3,266 California training
   programs to their federally reported outcomes and the state's occupation and wage projections,
-  built entirely from public data. Roughly a third publish no outcome data, and the site says so
+  built entirely from public data. More than a third publish no outcome data, and the site says so
   rather than rendering an absence as a zero. No account, no tracking, English and Spanish from
   the first release.
 - **[NearMiss](https://github.com/ChelseaKR/nearmiss)** is a beta road-safety analysis toolkit that
   uses exposure-normalized rates, confidence intervals, and statistically controlled hotspot
   detection instead of treating raw report density as risk.
-- **[Swelter](https://github.com/ChelseaKR/swelter)** is a beta reference system for community
-  heat and air quality, with correction provenance, a bilingual dashboard, and OGC SensorThings
-  exports.
+- **[Swelter](https://github.com/ChelseaKR/swelter)** ([live demo](https://chelseakr.github.io/swelter/),
+  refreshed daily on real data) is a beta reference system for community heat and air quality,
+  with correction provenance, a bilingual dashboard, and OGC SensorThings exports.
 - **[ledger](https://github.com/ChelseaKR/ledger)** is a beta, privacy-first digital-preservation
   tool using BagIt, PREMIS, Dublin Core, encrypted contributor identities, and consent-based
   disclosure. It contains synthetic and consented fixtures only.
@@ -103,7 +106,8 @@ shipped, what remains experimental, and what still requires human review.
   traced to evidence.
 - **[habitable](https://github.com/ChelseaKR/habitable)** is an alpha, offline-first tool for
   tenant unions that makes habitability evidence tamper-evident with content hashes and RFC 3161
-  timestamps, then syncs peer-to-peer with no central server.
+  timestamps, then syncs peer-to-peer over an end-to-end-encrypted CRDT; an optional relay only
+  ever carries ciphertext.
 
 ## How I lead and build
 
@@ -138,11 +142,14 @@ criteria, review the output, and decide whether it is ready to release.
 
 ## Selected coverage and recognition
 
-MyCareer.NJ.gov has been featured by Fast Company and the Royal Statistical Society's Real World
-Data Science. The Harvard Kennedy School's Project on Workforce described its Training Explorer as
-a "promising potential model," and Credential Engine has featured its CTDL publishing work. The
-platform was also nominated for a NASWA Workforce Innovation Award. In 2023, I joined a Digital
-Services Coalition roundtable on AI and machine learning in federal and civic technology.
+In 2026, the Labor Market Information Institute gave NJDOL its Best State LMI Focus on Impact and
+Sustainability award for the department's evidence-based approach and MyCareer.NJ.gov. The
+platform has been featured by Fast Company and the Royal Statistical Society's Real World Data
+Science. The Harvard Kennedy School's Project on Workforce described its Training Explorer as a
+"promising potential model," and Credential Engine has featured its CTDL publishing work. The
+platform was also nominated for a NASWA Workforce Innovation Award. I was a registered member of
+Credential Engine's CTDL Advisory Group from January 2025 to July 2026, and in 2023 I joined a
+Digital Services Coalition roundtable on AI and machine learning in federal and civic technology.
 
 ## What I'm looking for
 
@@ -161,8 +168,8 @@ Reach me at [chelseakr.com](https://chelseakr.com) or on
 [b-react]: https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB
 [b-aws]: https://img.shields.io/badge/AWS-232F3E?logo=amazonwebservices&logoColor=white
 [b-pg]: https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white
-[b-public-systems]: https://img.shields.io/badge/public_systems-engineering_leadership-0F766E.png
-[b-accessibility]: https://img.shields.io/badge/accessibility-built_in-2563EB.png
-[b-ai-review]: https://img.shields.io/badge/AI-evidence_%2B_human_review-7C3AED.png
-[b-open-to]: https://img.shields.io/badge/open_to-engineering_leadership_%2B_consulting-0A7D39.png
+[b-public-systems]: https://img.shields.io/badge/public_systems-engineering_leadership-0F766E
+[b-accessibility]: https://img.shields.io/badge/accessibility-built_in-2563EB
+[b-ai-review]: https://img.shields.io/badge/AI-evidence_%2B_human_review-7C3AED
+[b-open-to]: https://img.shields.io/badge/open_to-engineering_leadership_%2B_consulting-0A7D39
 [b-trans]: https://img.shields.io/badge/trans_rights-are_human_rights-F5A9B8?labelColor=5BCEFA
