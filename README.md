@@ -60,19 +60,28 @@ Based in Davis, California · [Portfolio](https://chelseakr.com) ·
 
 ## Open source worth opening
 
-These independent projects are public and inspectable. Most are pre-1.0 tools or reference
-implementations, not evidence of organizational adoption. Each repository documents what has
-shipped, what remains experimental, and what still requires human review.
+These independent projects are public and inspectable. They date from June 2026 onward, when I
+began building this portfolio in the open, and I have been working on it close to full time since.
+AI agents are part of that workflow: I choose the architecture, write the acceptance criteria,
+review the output, and decide whether it is ready to release. That is how this much exists in this
+little time, and it is the same discipline I would set for a team adopting these tools.
+
+Most of what follows is a pre-1.0 tool or reference implementation, not evidence of organizational
+adoption. Each repository documents what has shipped, what remains experimental, and what still
+requires human review. Where someone outside a project has changed its direction, I have said so.
 
 - **[tods-validate](https://github.com/ChelseaKR/tods-validate)** is a deterministic validator for
   the Transit Operational Data Standard. Version 0.8.0 is on PyPI, and the project ships a GitHub
   Action, container image, pre-commit hook, and
   [browser playground](https://chelseakr.github.io/tods-validate/).
 - **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
-  [gtfsscorecard.org](https://gtfsscorecard.org)) is a transit-data-quality service covering a
-  curated registry of 2,185 feed records, 2,182 of them with published scorecards as of August
-  2026; its status page reports the exact current counts. It also ships a GitHub Marketplace
-  Action and a read-only MCP server.
+  [gtfsscorecard.org](https://gtfsscorecard.org)) publishes daily, plain-language transit-data
+  quality grades across a curated registry of more than 2,100 feed records; its status page reports
+  the exact current counts. It does not reimplement GTFS validation: correctness findings come from
+  MobilityData's canonical validator, and this project adds freshness, completeness, and
+  prioritized fixes on top. **Unitrans** (UC Davis / City of Davis) and **Yolobus** (Yolo County
+  Transportation District) are running a 90-day pilot of the remediation workflow. It also ships a
+  GitHub Marketplace Action and a read-only MCP server.
 - **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
   validator for CTDL JSON-LD, the national credential-data standard: CTID grammar, identifier
   kinds, reference resolution, domain and range, and inverse consistency, with every finding
@@ -109,6 +118,31 @@ shipped, what remains experimental, and what still requires human review.
   timestamps, then syncs peer-to-peer over an end-to-end-encrypted CRDT; an optional relay only
   ever carries ciphertext.
 
+### What outside review has changed
+
+These projects have few stars. What they have instead is a record of being corrected in public:
+
+- **Scope.** [Jannis (derhuerst)](https://github.com/derhuerst), a longtime open transit-data
+  maintainer, [argued](https://github.com/ChelseaKR/gtfs-scorecard/issues/194) that GTFS
+  Scorecard's scoring belonged in MobilityData's canonical validator rather than in yet another
+  dashboard. He was substantially right. I surveyed the closest existing tools, kept the canonical
+  validator as the correctness engine, declined to push subjective letter grades into an official
+  project where they would look like guidance, de-emphasized the overlapping dashboard features,
+  and narrowed this project to the handoff nobody else covers: a named fix request, a comparable
+  recheck of the same published feed, and reproducible closure evidence.
+- **Scoring.** The producer of the MRC de Joliette feed
+  [pushed back](https://github.com/ChelseaKR/gtfs-scorecard/issues/180) on a recommendation to
+  populate `trip_headsign` on loop routes. They were right: GTFS Best Practices discourage
+  repeating the route name, and the twelve blank headsigns in that feed were all single-pattern
+  frequency templates. I changed the rule so that verifiable case is credited instead of flagged.
+
+Upstream, I have merged a specification example fix into
+[MobilityData's TODS](https://github.com/MobilityData/transit-operational-data-standard/pull/147)
+and an entry into [awesome-transit](https://github.com/MobilityData/awesome-transit/pull/387), with
+a [conformance-language clarification](https://github.com/MobilityData/transit-operational-data-standard/pull/156)
+and a [Transitland feed-archival PR](https://github.com/transitland/transitland-atlas/pull/2098)
+still open.
+
 ## How I lead and build
 
 I lead at portfolio altitude and stay technically deep: I set architecture, challenge assumptions,
@@ -123,9 +157,6 @@ I treat accessibility, privacy, security, operability, and multilingual delivery
 requirements. For AI systems, that means evidence-constrained generation, explicit refusal,
 adversarial testing, disaggregated evaluation, cost controls, feature flags, and human review for
 legal, policy, subject-matter, and accessibility judgments.
-
-AI agents are part of my development workflow. I choose the architecture, write the acceptance
-criteria, review the output, and decide whether it is ready to release.
 
 ## What I will and won't work on
 
