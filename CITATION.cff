@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you reference this professional profile, cite it as follows."
+title: "Chelsea Kelly-Reif — GitHub profile"
+type: other
+authors:
+  - family-names: "Kelly-Reif"
+    given-names: "Chelsea"
+license: LicenseRef-Proprietary
+repository-code: "https://github.com/ChelseaKR/ChelseaKR"

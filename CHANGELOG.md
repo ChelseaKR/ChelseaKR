@@ -6,6 +6,9 @@ is the git log.
 
 ## [Unreleased]
 
+- Restored a concise repository-scope and standards register, and added explicit
+  citation and licensing metadata for the profile content (2026-07-23).
+
 - Consolidated the repository's git history to a single commit (2026-07-19);
   earlier notable changes remain recorded below.
 
