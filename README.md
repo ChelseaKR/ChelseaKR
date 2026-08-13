@@ -70,6 +70,15 @@ Most of what follows is a pre-1.0 tool or reference implementation, not evidence
 adoption. Each repository documents what has shipped, what remains experimental, and what still
 requires human review. Where someone outside a project has changed its direction, I have said so.
 
+- **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** (evidence hub at
+  [evals.chelseakr.com](https://evals.chelseakr.com)) is a beta bilingual retrieval assistant for
+  California reduced-fare policy, wrapped in the public evaluation harness that is the actual point
+  of the repository: 201 cases, versioned prompts, a committed regression baseline, merge-blocking
+  refusal and grounding gates, and mirrored English and Spanish cases held to the same agency and
+  required facts. The promoted baseline is 192 of 201. It also publishes what the evidence does not
+  cover: judge calibration rests on 4 scored labels against a floor of 37, native-Spanish answer
+  quality has never been measured, and the second-harness replay is my own private tool rather than
+  a third-party audit.
 - **[tods-validate](https://github.com/ChelseaKR/tods-validate)** is a deterministic validator for
   the Transit Operational Data Standard. Version 0.8.0 is on PyPI, and the project ships a GitHub
   Action, container image, pre-commit hook, and
@@ -82,10 +91,21 @@ requires human review. Where someone outside a project has changed its direction
   prioritized fixes on top. **Unitrans** (UC Davis / City of Davis) and **Yolobus** (Yolo County
   Transportation District) are running a 90-day pilot of the remediation workflow. It also ships a
   GitHub Marketplace Action and a read-only MCP server.
+- **[Transit Delivery Atlas](https://github.com/ChelseaKR/transit-delivery-atlas)** (live at
+  [transit.chelseakr.com](https://transit.chelseakr.com)) turns each actionable directive in
+  California Executive Order N-7-26 into a source-linked record: the source language, the entities
+  named in it, timing, public-evidence coverage including explicit empty states, and the open
+  implementation questions. Independent analysis, not an official state site, and the labels are
+  analytical rather than legal.
 - **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
   validator for CTDL JSON-LD, the national credential-data standard: CTID grammar, identifier
   kinds, reference resolution, domain and range, and inverse consistency, with every finding
-  cited to the published schema.
+  cited to the published schema. Version 0.1.0 shipped 2026-08-08 from a signed tag.
+- **[Chalkline](https://github.com/ChelseaKR/chalkline)** models 133 California educator-credential
+  authorizations onto CTDL and publishes them as JSON-LD, built only from what the Commission on
+  Teacher Credentialing already publishes. It is a worked example of a representation that does not
+  exist yet: unofficial, never published to the Credential Registry, and the build fails if the
+  committed graph and its coverage statement are not byte-for-byte what the current sources produce.
 - **[disclosed](https://github.com/ChelseaKR/disclosed)** grades US higher-education institutions
   on what they disclose rather than how they perform, across the complete 6,163-institution IPEDS
   directory and a 600-institution College Scorecard sample, with applicability rules that keep
@@ -94,29 +114,65 @@ requires human review. Where someone outside a project has changed its direction
   endpoints daily under the CMS interoperability rules, every finding citing the specification
   text or the stated convention it applies, drift tracked between runs. Unauthenticated surfaces
   only, never patient data.
+- **[mrf-honest](https://github.com/ChelseaKR/mrf-honest)** ingests CMS hospital price-transparency
+  files at their real size and grades whether a publisher's file is genuinely usable rather than
+  merely compliant. A 64 MB hospital file streams in 9.25 seconds at 32 MiB of memory, and the
+  contracted DuckDB and Parquet snapshot is idempotent. It does not yet publish cross-hospital
+  comparisons.
 - **[Afterward](https://github.com/ChelseaKR/afterward)** (formerly Camino, live at
   [afterward.chelseakr.com](https://afterward.chelseakr.com)) joins 3,266 California training
   programs to their federally reported outcomes and the state's occupation and wage projections,
   built entirely from public data. More than a third publish no outcome data, and the site says so
   rather than rendering an absence as a zero. No account, no tracking, English and Spanish from
   the first release.
-- **[NearMiss](https://github.com/ChelseaKR/nearmiss)** is a beta road-safety analysis toolkit that
-  uses exposure-normalized rates, confidence intervals, and statistically controlled hotspot
-  detection instead of treating raw report density as risk.
-- **[Swelter](https://github.com/ChelseaKR/swelter)** ([live demo](https://chelseakr.github.io/swelter/),
-  refreshed daily on real data) is a beta reference system for community heat and air quality,
-  with correction provenance, a bilingual dashboard, and OGC SensorThings exports.
-- **[ledger](https://github.com/ChelseaKR/ledger)** is a beta, privacy-first digital-preservation
-  tool using BagIt, PREMIS, Dublin Core, encrypted contributor identities, and consent-based
-  disclosure. It contains synthetic and consented fixtures only.
+- **[constituent-reconciler](https://github.com/ChelseaKR/constituent-reconciler)** is a beta,
+  offline-first pipeline that turns nonprofit intake PDFs and spreadsheets into deduplicated
+  records in CiviCRM or Salesforce, with a non-technical reviewer approving every uncertain match
+  before anything is written. Nothing merges silently, and the VAWA and FVPSA confidentiality rules
+  for domestic-violence programs are enforced as merge-blocking tests rather than documentation.
 - **[outcome-receipts](https://github.com/ChelseaKR/outcome-receipts)** is a beta tool for
   nonprofit funder reports where every figure carries a receipt: a deterministic query, a
   data-slice hash, and a fail-closed grounding gate that blocks export if a number cannot be
   traced to evidence.
-- **[habitable](https://github.com/ChelseaKR/habitable)** is an alpha, offline-first tool for
+- **[NearMiss](https://github.com/ChelseaKR/nearmiss)** (live at
+  [nearmiss.chelseakr.com](https://nearmiss.chelseakr.com)) is a beta road-safety analysis toolkit
+  that uses exposure-normalized rates, confidence intervals, and statistically controlled hotspot
+  detection instead of treating raw report density as risk.
+- **[Swelter](https://github.com/ChelseaKR/swelter)** ([live demo](https://chelseakr.github.io/swelter/),
+  refreshed daily on real data) is a beta reference system for community heat and air quality,
+  with correction provenance, a bilingual dashboard, and OGC SensorThings exports.
+- **[Permit Bearings](https://github.com/ChelseaKR/permit-pathways)**
+  ([live](https://chelseakr.github.io/permit-pathways/)) screens a California ADU, JADU, or SB 9
+  project against cited official sources and hands the applicant the questions to take to local
+  staff. The matcher is deterministic; the bilingual explanations are AI-assisted drafts pending
+  review. The packet flagship is a source-bound future-state simulation, because the city it models
+  has not published its preapproved plans yet, and the tool says exactly that.
+- **[habitable](https://github.com/ChelseaKR/habitable)** (live at
+  [habitable.chelseakr.com](https://habitable.chelseakr.com)) is an alpha, offline-first tool for
   tenant unions that makes habitability evidence tamper-evident with content hashes and RFC 3161
   timestamps, then syncs peer-to-peer over an end-to-end-encrypted CRDT; an optional relay only
   ever carries ciphertext.
+- **[ledger](https://github.com/ChelseaKR/ledger)** is a beta, privacy-first digital-preservation
+  tool using BagIt, PREMIS, Dublin Core, encrypted contributor identities, and consent-based
+  disclosure. It contains synthetic and consented fixtures only.
+
+Smaller or earlier, and public for the same reason:
+
+- **[Homeroom](https://github.com/ChelseaKR/homeroom)** makes California school data readable by
+  families and refuses to rank schools, because a suppressed measure and a zero are different facts.
+- **[Perimeter](https://github.com/ChelseaKR/perimeter)** publishes the arithmetic behind the
+  limitations CAL FIRE and FRAP already state about their wildfire datasets, as counts.
+- **[ExitDrill](https://github.com/ChelseaKR/exitdrill)** is a technical alpha that drills whether a
+  SaaS export preserves relationships, attachments, permissions, and audit history, rather than
+  collapsing them into one portability score. Synthetic data only.
+- **[ID Churn Sentinel](https://github.com/ChelseaKR/id-churn-sentinel)** is a technical alpha that
+  watches US transgender identity-document sources for changes and shows the passage that changed. A
+  named human reviews every change before publication, and the registry is a candidate list: 0 of
+  152 sources are human-verified, the site says so beside every entry, and the watcher fails closed
+  until they are.
+- **[Davis Bike Hazard Map](https://github.com/ChelseaKR/davis-bike-hazard-map)** is a beta,
+  offline-capable PWA for reporting cycling hazards, with an accessible list view at parity with the
+  map, hazard-avoiding routing that states what the detour costs, and optional 311 handoff.
 
 ### What outside review has changed
 
@@ -139,8 +195,9 @@ These projects have few stars. What they have instead is a record of being corre
 Upstream, I have merged a specification example fix into
 [MobilityData's TODS](https://github.com/MobilityData/transit-operational-data-standard/pull/147)
 and an entry into [awesome-transit](https://github.com/MobilityData/awesome-transit/pull/387), with
-a [conformance-language clarification](https://github.com/MobilityData/transit-operational-data-standard/pull/156)
-and a [Transitland feed-archival PR](https://github.com/transitland/transitland-atlas/pull/2098)
+a [conformance-language clarification](https://github.com/MobilityData/transit-operational-data-standard/pull/156),
+a [second awesome-transit entry](https://github.com/MobilityData/awesome-transit/pull/389), and a
+[Transitland feed-archival PR](https://github.com/transitland/transitland-atlas/pull/2098)
 still open.
 
 ## How I lead and build
@@ -188,8 +245,8 @@ I'm interested in engineering leadership roles (VP of Engineering, Head of Engin
 Director, Director, or Principal Engineering Manager) and independent consulting engagements in
 the same domains while I search. I want to lead teams and managers, shape
 architecture and delivery systems, and build reliable, accessible technology in public health,
-workforce and social services, energy and utilities, government digital services, or responsible
-AI.
+workforce and social services, energy and utilities, state and local digital services, or
+responsible AI. I am not considering federal contracting roles.
 
 Reach me at [chelseakr.com](https://chelseakr.com) or on
 [LinkedIn](https://linkedin.com/in/chelseakr).
