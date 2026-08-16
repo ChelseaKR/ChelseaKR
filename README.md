@@ -73,12 +73,23 @@ requires human review. Where someone outside a project has changed its direction
 - **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** (evidence hub at
   [evals.chelseakr.com](https://evals.chelseakr.com)) is a beta bilingual retrieval assistant for
   California reduced-fare policy, wrapped in the public evaluation harness that is the actual point
-  of the repository: 201 cases, versioned prompts, a committed regression baseline, merge-blocking
-  refusal and grounding gates, and mirrored English and Spanish cases held to the same agency and
-  required facts. The promoted baseline is 192 of 201. It also publishes what the evidence does not
-  cover: judge calibration rests on 4 scored labels against a floor of 37, native-Spanish answer
-  quality has never been measured, and the second-harness replay is my own private tool rather than
-  a third-party audit.
+  of the repository: 385 cases over an eighteen-agency corpus, versioned prompts, a committed
+  regression baseline, merge-blocking refusal and grounding gates, and mirrored English and Spanish
+  cases held to the same agency and required facts. It also publishes what the evidence does not
+  cover. The promoted baseline of 192 of 201 was scored in July against a five-agency corpus and
+  has not been rerun since the corpus grew to eighteen, so the repository marks every artifact that
+  depends on it as not yet live-validated, and the nightly over the full suite is currently under
+  its own floor. Judge calibration rests on 4 scored labels against a floor of 37, native-Spanish
+  answer quality has never been measured, and the second-harness replay is my own private tool
+  rather than a third-party audit.
+- **[gauntlet](https://github.com/ChelseaKR/gauntlet)** runs YAML-driven, merge-blocking evaluation
+  gates against any HTTP endpoint or Python callable and emits each run in two forms: a versioned
+  JSON pack a machine can diff, and a reviewer document cross-referenced to California's published
+  GenAI risk and procurement framework. It grades a deployed feature in its context, not a
+  foundation model, and it depends on no model vendor. The mapping language is "aligned to," never
+  "approved by": no state body has reviewed or endorsed it. Every pack states its own limits on its
+  face, including that grounding is checked against the context a target claims to have retrieved,
+  so a dishonest target is out of scope.
 - **[tods-validate](https://github.com/ChelseaKR/tods-validate)** is a deterministic validator for
   the Transit Operational Data Standard. Version 0.8.0 is on PyPI, and the project ships a GitHub
   Action, container image, pre-commit hook, and
@@ -100,7 +111,22 @@ requires human review. Where someone outside a project has changed its direction
 - **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
   validator for CTDL JSON-LD, the national credential-data standard: CTID grammar, identifier
   kinds, reference resolution, domain and range, and inverse consistency, with every finding
-  cited to the published schema. Version 0.1.0 shipped 2026-08-08 from a signed tag.
+  cited to the published schema. Version 0.1.0 shipped 2026-08-08 from a signed tag, and the
+  same rule core runs in the browser via WebAssembly in a
+  [playground](https://chelseakr.github.io/ctdl-validate/) that uploads nothing.
+- **[ctdl-validate-jvm](https://github.com/ChelseaKR/ctdl-validate-jvm)** is a Java port of that
+  rule core, kept honest by a parity test that runs both implementations over one fixture corpus
+  and fails the build if they disagree about a single finding. It is a reference port, not a
+  product and not a claim of production JVM experience. The point is the property: a conformance
+  rule set specified precisely enough to be rebuilt in another language and reconciled finding for
+  finding.
+- **[oscal-validate](https://github.com/ChelseaKR/oscal-validate)** is a beta deterministic
+  structural validator for OSCAL documents, from catalogs and profiles to SSPs, assessment results,
+  and POA&Ms: required structure, identifier format and uniqueness, and whether references resolve,
+  with every finding cited to NIST's published schema, its Metaschema constraints, or quoted prose
+  carrying the date that page was retrieved. Anything it did not evaluate is reported UNVERIFIABLE
+  and never rendered as a pass, and a clean report lists what was not checked. It says nothing
+  about whether a control is implemented. Nothing is tagged or published to PyPI yet.
 - **[Chalkline](https://github.com/ChelseaKR/chalkline)** models 133 California educator-credential
   authorizations onto CTDL and publishes them as JSON-LD, built only from what the Commission on
   Teacher Credentialing already publishes. It is a worked example of a representation that does not
@@ -142,11 +168,11 @@ requires human review. Where someone outside a project has changed its direction
   refreshed daily on real data) is a beta reference system for community heat and air quality,
   with correction provenance, a bilingual dashboard, and OGC SensorThings exports.
 - **[Permit Bearings](https://github.com/ChelseaKR/permit-pathways)**
-  ([live](https://chelseakr.github.io/permit-pathways/)) screens a California ADU, JADU, or SB 9
-  project against cited official sources and hands the applicant the questions to take to local
-  staff. The matcher is deterministic; the bilingual explanations are AI-assisted drafts pending
-  review. The packet flagship is a source-bound future-state simulation, because the city it models
-  has not published its preapproved plans yet, and the tool says exactly that.
+  ([live](https://chelseakr.github.io/permit-pathways/)) is a prototype that screens a California
+  ADU, JADU, or SB 9 project against cited official sources and hands the applicant the questions
+  to take to local staff. The matcher is deterministic; the bilingual explanations are AI-assisted
+  drafts pending review. The packet flagship is a source-bound future-state simulation, because
+  the city it models has not published its preapproved plans yet, and the tool says exactly that.
 - **[habitable](https://github.com/ChelseaKR/habitable)** (live at
   [habitable.chelseakr.com](https://habitable.chelseakr.com)) is an alpha, offline-first tool for
   tenant unions that makes habitability evidence tamper-evident with content hashes and RFC 3161
