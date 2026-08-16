@@ -20,6 +20,12 @@ Before pushing, run:
 make verify
 ```
 
-This lints all Markdown in the repository with markdownlint (the same check
-the pre-commit hook runs; install it with `pre-commit install`). It must exit
-clean.
+This runs two checks, and both must exit clean:
+
+- `make lint` lints all Markdown with markdownlint (the same check the
+  pre-commit hook runs; install it with `pre-commit install`).
+- `make names` fails if any Markdown here names or links one of my
+  repositories that is not public. It reads the live list from `gh repo list`,
+  so it needs an authenticated `gh`, and it fails rather than skips without
+  one. It catches bare project names in prose, not just links, because that is
+  how this has actually gone wrong.
