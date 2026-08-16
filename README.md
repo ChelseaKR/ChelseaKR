@@ -111,7 +111,9 @@ requires human review. Where someone outside a project has changed its direction
 - **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
   validator for CTDL JSON-LD, the national credential-data standard: CTID grammar, identifier
   kinds, reference resolution, domain and range, and inverse consistency, with every finding
-  cited to the published schema. Version 0.1.0 shipped 2026-08-08 from a signed tag.
+  cited to the published schema. Version 0.1.0 shipped 2026-08-08 from a signed tag, and the
+  same rule core runs in the browser via WebAssembly in a
+  [playground](https://chelseakr.github.io/ctdl-validate/) that uploads nothing.
 - **[ctdl-validate-jvm](https://github.com/ChelseaKR/ctdl-validate-jvm)** is a Java port of that
   rule core, kept honest by a parity test that runs both implementations over one fixture corpus
   and fails the build if they disagree about a single finding. It is a reference port, not a
@@ -166,11 +168,11 @@ requires human review. Where someone outside a project has changed its direction
   refreshed daily on real data) is a beta reference system for community heat and air quality,
   with correction provenance, a bilingual dashboard, and OGC SensorThings exports.
 - **[Permit Bearings](https://github.com/ChelseaKR/permit-pathways)**
-  ([live](https://chelseakr.github.io/permit-pathways/)) screens a California ADU, JADU, or SB 9
-  project against cited official sources and hands the applicant the questions to take to local
-  staff. The matcher is deterministic; the bilingual explanations are AI-assisted drafts pending
-  review. The packet flagship is a source-bound future-state simulation, because the city it models
-  has not published its preapproved plans yet, and the tool says exactly that.
+  ([live](https://chelseakr.github.io/permit-pathways/)) is a prototype that screens a California
+  ADU, JADU, or SB 9 project against cited official sources and hands the applicant the questions
+  to take to local staff. The matcher is deterministic; the bilingual explanations are AI-assisted
+  drafts pending review. The packet flagship is a source-bound future-state simulation, because
+  the city it models has not published its preapproved plans yet, and the tool says exactly that.
 - **[habitable](https://github.com/ChelseaKR/habitable)** (live at
   [habitable.chelseakr.com](https://habitable.chelseakr.com)) is an alpha, offline-first tool for
   tenant unions that makes habitability evidence tamper-evident with content hashes and RFC 3161

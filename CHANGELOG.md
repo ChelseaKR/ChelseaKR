@@ -6,6 +6,15 @@ is the git log.
 
 ## [Unreleased]
 
+- Added `make names` (`tools/check_repo_names.py`), which fails if any Markdown
+  here names or links a repository of mine that is not public. It reads the
+  live list from `gh repo list` and checks bare names in prose as well as
+  links, because the failure it exists to prevent was three project names in
+  sentences with no URL attached, which no link checker would have seen
+  (2026-08-15).
+- Second freshness pass (2026-08-15): linked the ctdl-validate browser
+  playground, and called Permit Bearings a prototype, which is the word its own
+  README and repository description use (2026-08-15).
 - Freshness pass (2026-08-15): corrected the fare-policy-assistant figures to
   the 385-case, eighteen-agency harness and stated that the promoted 192-of-201
   baseline predates that expansion; added gauntlet, ctdl-validate-jvm, and
