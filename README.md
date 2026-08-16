@@ -167,8 +167,8 @@ requires human review. Where someone outside a project has changed its direction
 - **[Swelter](https://github.com/ChelseaKR/swelter)** ([live demo](https://chelseakr.github.io/swelter/),
   refreshed daily on real data) is a beta reference system for community heat and air quality,
   with correction provenance, a bilingual dashboard, and OGC SensorThings exports.
-- **[Permit Bearings](https://github.com/ChelseaKR/permit-pathways)**
-  ([live](https://chelseakr.github.io/permit-pathways/)) is a prototype that screens a California
+- **[Permit Bearings](https://github.com/ChelseaKR/permit-bearings)**
+  ([live](https://chelseakr.github.io/permit-bearings/)) is a prototype that screens a California
   ADU, JADU, or SB 9 project against cited official sources and hands the applicant the questions
   to take to local staff. The matcher is deterministic; the bilingual explanations are AI-assisted
   drafts pending review. The packet flagship is a source-bound future-state simulation, because
