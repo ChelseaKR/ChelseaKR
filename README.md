@@ -2,8 +2,8 @@
 
 I lead engineering for public-interest systems, and I still build them. Most of my public
 repositories are measurement tools: validators, scorecards, and evaluation harnesses pointed at
-real transit feeds, hospital price files, health-plan APIs, credential records, and college
-disclosures.
+real transit feeds, hospital price files, health-plan APIs, credential records, college
+disclosures, and California energy filings.
 
 The interesting part is not how many there are. It is that each one is built so it can fail, and
 that when it does fail the failure is written down where you reach it before you reach the claim.
@@ -57,21 +57,23 @@ splits the two kinds of check apart: behavior suites score silence as zero, abse
 UNVERIFIABLE instead of passing, and a test now fails the build if a silent target ever passes
 again.
 
-**A grounded answer with nothing in it.** In
-[`cairn`](https://github.com/ChelseaKR/cairn), a grounded-retrieval reference implementation,
-building the config with `max_passages=0` produced an answer marked grounded that had no sources
-and no text. The refusal branch never ran, because retrieval had not failed. The bounds check
-[moved onto the dataclass](https://github.com/ChelseaKR/cairn/commit/abd54ab7c4981884e1258d4e4c598e373f1d80f0)
-so the constructor is held to the same rules the config file already was.
-
-**A gate that installs whatever it is told.** The CI lockfile check in these repositories ran only
+**The same shape, everywhere else.** Going looking for it across the rest of the repositories
+found it again and again, every instance green at the time.
+[`ceqa-preflight`](https://github.com/ChelseaKR/ceqa-preflight/commit/95db489acfb5)
+printed four PASS lines over a package whose PDFs had all timed out, byte-identical to the lines
+a clean package produces, and one of the four was the active-content check, so the report
+affirmatively cleared a document it had never opened. A weekly monitor in
+[`id-churn-sentinel`](https://github.com/ChelseaKR/id-churn-sentinel/commit/ad9a9cdf2472) went
+green four weeks running while its registry left zero of 152 sources eligible to check, because
+observing nothing emitted the same signals as observing no change. The two-person review gate in
+[`constituent-reconciler`](https://github.com/ChelseaKR/constituent-reconciler/commit/0a19009ce00a)
+was read by the review session and by neither apply path, so a merge under the strict policy pack
+went through on a single approver. And the CI lockfile check in these repositories ran only
 `uv sync --frozen`, which installs what the lockfile records and exits 0 no matter how far the
-lockfile has drifted from `pyproject.toml`. I measured the behavior, fixed it across every
-repository that had it, including
-[`tods-validate`](https://github.com/ChelseaKR/tods-validate/commit/ed96461bb0445050032a0b05cc740880066b10b8)
-and
-[`ctdl-validate`](https://github.com/ChelseaKR/ctdl-validate/commit/bb0be87efad9e6dd0cacd56b901ccb33b69ac585),
-and corrected the decision record that had asserted the opposite.
+lockfile has drifted from `pyproject.toml`; I measured that, fixed it everywhere it appeared, and
+corrected the
+[decision record](https://github.com/ChelseaKR/tods-validate/commit/ed96461bb0445050032a0b05cc740880066b10b8)
+that had asserted the opposite.
 
 **A statistic that could only come back perfect.** `fare-policy-assistant` published a
 judge-calibration agreement of 1.000 until I checked how it was computed. Every label that recorded
@@ -81,7 +83,8 @@ agreeing half. It now reports the coefficient as undefined, on 4 scored labels a
 
 The same rule applies to results. `mrf-honest` broke twice on its first real cohort of hospital
 price files, on a CSV dialect the reader guessed instead of declaring and on a memory ceiling two
-large exports exceeded. Both breaks are on the front page of the repository, above the grades.
+large exports exceeded. Both breaks are on the front page of the repository, in the paragraph
+directly under the grades.
 
 ## Measuring named organizations
 
@@ -147,6 +150,20 @@ rather you take the repository's word for that than mine.
   makes habitability evidence tamper-evident with content hashes and RFC 3161 timestamps, then
   syncs peer to peer under end-to-end encryption so there is no central holder to subpoena. Its own
   README says not to rely on it for real legal matters yet, and I agree with it.
+
+Four more are newer than the rest and all California energy and public-data work.
+[`qfer-preflight`](https://github.com/ChelseaKR/qfer-preflight) checks a QFER consumption filing
+against the Energy Commission's published rules before anyone uploads it.
+[`power-content-check`](https://github.com/ChelseaKR/power-content-check) checks a Power Content
+Label against the format Title 20 prescribes, and judges nothing about the power mix on it.
+[`ca-tariff-parse`](https://github.com/ChelseaKR/ca-tariff-parse) turns a published electricity
+rate schedule into structured data carrying the document, page and line behind every value. And
+[`inspected`](https://github.com/ChelseaKR/inspected) asks how much of California's public
+wildfire damage-inspection record can be attributed to a published electric service territory,
+and answers that 37.9 percent of it cannot, with a confidence interval and no utility ranked.
+Each cites the published rule behind every finding and reports what it could not check as
+unvalidated rather than as a pass, which is why a spotless QFER filing comes back `UNVALIDATED`
+and not `PASS`.
 
 These are independent personal projects, built since June 2026, with no proprietary or client
 material in them. AI agents are part of how I work: I choose the architecture, write the acceptance
