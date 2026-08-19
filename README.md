@@ -75,16 +75,17 @@ corrected the
 [decision record](https://github.com/ChelseaKR/tods-validate/commit/ed96461bb0445050032a0b05cc740880066b10b8)
 that had asserted the opposite.
 
-**A statistic that could only come back perfect.** `fare-policy-assistant` published a
+**A statistic that could only come back perfect.**
+[`fare-policy-assistant`](https://github.com/ChelseaKR/fare-policy-assistant) published a
 judge-calibration agreement of 1.000 until I checked how it was computed. Every label that recorded
 a disagreement between the human and the judge had gone stale, so the surviving sample was the
 agreeing half. It now reports the coefficient as undefined, on 4 scored labels against a floor of
 37, on the evaluation report itself.
 
-The same rule applies to results. `mrf-honest` broke twice on its first real cohort of hospital
-price files, on a CSV dialect the reader guessed instead of declaring and on a memory ceiling two
-large exports exceeded. Both breaks are on the front page of the repository, in the paragraph
-directly under the grades.
+The same rule applies to results. [`mrf-honest`](https://github.com/ChelseaKR/mrf-honest) broke
+twice on its first real cohort of hospital price files, on a CSV dialect the reader guessed instead
+of declaring and on a memory ceiling two large exports exceeded. Both breaks are on the front page
+of the repository, in the paragraph directly under the grades.
 
 ## Measuring named organizations
 
@@ -119,8 +120,10 @@ rather you take the repository's word for that than mine.
 - **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
   [gtfsscorecard.org](https://gtfsscorecard.org)) publishes daily, plain-language transit data
   quality grades over a registry of more than 2,100 feed records. Correctness comes from
-  MobilityData's canonical validator, not from a competing one. Unitrans and Yolobus are running a
-  90-day pilot of the remediation handoff.
+  MobilityData's canonical validator, not from a competing one. Unitrans and Yolobus are the two
+  feeds it runs as worked examples. The remediation handoff is a 90-day pilot that has not
+  recruited a participant yet, and the site badges those steps *Pilot* rather than counting them
+  as shipped.
 - **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** (evidence at
   [evals.chelseakr.com](https://evals.chelseakr.com)) answers rider questions about reduced-fare
   policy for eighteen California transit agencies. The assistant exists so that the public

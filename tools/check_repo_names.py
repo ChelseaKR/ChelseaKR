@@ -28,6 +28,16 @@ list is exactly the thing that goes stale and causes this bug, so there is not
 one. If ``gh`` is missing, unauthenticated, or returns nothing, this exits
 non-zero and says so. A check that could not run is not a check that passed.
 
+That last sentence has a second edge, and it is the one that bites in CI. A
+token scoped to a single repository -- GitHub Actions' default ``GITHUB_TOKEN``
+is one -- can call ``gh repo list`` successfully and get back only the *public*
+repositories. Nothing errors. The watchlist of non-public names comes back
+empty, every name in the prose passes trivially, and the check reports OK while
+having looked for nothing. So an inventory with zero non-public repositories in
+it is treated as an inventory that could not be read, not as an account with
+nothing to hide. ``--inventory-may-be-public-only`` says otherwise, for the day
+that is genuinely true.
+
 Usage
 -----
 ``python3 tools/check_repo_names.py`` from the repository root, or ``make names``.
@@ -35,6 +45,7 @@ Usage
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import subprocess
@@ -149,6 +160,18 @@ def markdown_files(root: Path) -> list[Path]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument(
+        "--inventory-may-be-public-only",
+        action="store_true",
+        help=(
+            "Accept an inventory containing no non-public repositories. "
+            "Without this, an empty watchlist is read as a token that cannot "
+            "see private repositories rather than as an account without any."
+        ),
+    )
+    args = parser.parse_args()
+
     root = Path(
         subprocess.run(
             ["git", "rev-parse", "--show-toplevel"],
@@ -158,6 +181,19 @@ def main() -> int:
         ).stdout.strip()
     )
     public, withheld = repo_inventory()
+    if not withheld and not args.inventory_may_be_public_only:
+        sys.exit(
+            "check_repo_names: the inventory came back with "
+            f"{len(public)} public repositories and no non-public ones, so "
+            "there is nothing to watch for and this check would pass without "
+            "looking at anything.\n"
+            "That is what a repository-scoped token looks like -- GitHub "
+            "Actions' default GITHUB_TOKEN, for instance, lists only public "
+            "repositories and reports no error. Authenticate `gh` as an "
+            "account that can see the private ones.\n"
+            "If every repository really is public now, pass "
+            "--inventory-may-be-public-only."
+        )
     checked = {
         name: reason
         for name, reason in withheld.items()
