@@ -6,6 +6,29 @@ is the git log.
 
 ## [Unreleased]
 
+- Linked `mrf-honest` and `fare-policy-assistant` where "What I find in my own
+  work" first names them. Every other project offered as evidence in that
+  section was already a link. `mrf-honest` is public, and was the one project
+  named on this page with no way to reach it from anywhere on it (2026-08-18).
+- Gave this repository CI, which it had never had. `CONTRIBUTING.md` said to run
+  `make verify` before pushing and nothing enforced it, so the checks ran only
+  when someone remembered. `.github/workflows/verify.yml` now runs them on every
+  pull request, on pushes to `main`, and once a week — weekly because link rot
+  here is caused by renames and visibility changes made in *other* repositories,
+  and arrives with no commit to trigger on (2026-08-18).
+- Added `make links` (`tools/check_links.py`), which fails if a URL in this
+  repository does not resolve for a logged-out visitor, or resolves somewhere
+  other than where it says. It is unauthenticated on purpose, so it sees what a
+  stranger sees. The failure it exists for is not a 404: GitHub forwards a
+  renamed repository forever and answers `200`, so the stale links left by three
+  renames in six weeks all passed a status check while the profile printed names
+  that no longer existed. A redirect that changes the path on `github.com` is
+  therefore a failure here, and the message names the target (2026-08-18).
+- Closed a way `make names` could pass without looking at anything: a
+  repository-scoped token — GitHub Actions' default `GITHUB_TOKEN` is one —
+  lists only public repositories and reports no error, leaving the watchlist of
+  non-public names empty. An inventory with no non-public repositories in it is
+  now treated as an inventory that could not be read (2026-08-18).
 - Added `make names` (`tools/check_repo_names.py`), which fails if any Markdown
   here names or links a repository of mine that is not public. It reads the
   live list from `gh repo list` and checks bare names in prose as well as

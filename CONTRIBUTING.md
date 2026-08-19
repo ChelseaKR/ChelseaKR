@@ -20,12 +20,24 @@ Before pushing, run:
 make verify
 ```
 
-This runs two checks, and both must exit clean:
+This runs three checks, and all three must exit clean:
 
 - `make lint` lints all Markdown with markdownlint (the same check the
   pre-commit hook runs; install it with `pre-commit install`).
+- `make links` fails if a URL here does not resolve for a logged-out visitor,
+  or resolves somewhere other than where it says. It is unauthenticated on
+  purpose, so that it sees what a stranger sees. A renamed repository is the
+  case it exists for: GitHub forwards the old name forever and answers `200`,
+  so a stale link passes a status-only check while the profile keeps printing a
+  name that no longer exists.
 - `make names` fails if any Markdown here names or links one of my
   repositories that is not public. It reads the live list from `gh repo list`,
   so it needs an authenticated `gh`, and it fails rather than skips without
   one. It catches bare project names in prose, not just links, because that is
   how this has actually gone wrong.
+
+`make lint` and `make links` also run in CI on every pull request and once a
+week, because most of what goes wrong here goes wrong without anyone touching
+this repository. `make names` needs credentials CI does not have by default; if
+an `INVENTORY_TOKEN` secret is not configured, the workflow says out loud that
+it did not run rather than reporting a pass.

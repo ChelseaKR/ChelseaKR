@@ -1,0 +1,64 @@
+# This profile had no CI at all until now: CONTRIBUTING said "before pushing,
+# run make verify", and nothing enforced it. The checks it names catch link rot
+# and references to repositories that stopped being public -- failures that
+# arrive on their own schedule, from renames and visibility changes made in
+# *other* repositories, long after the last commit here. So this runs on every
+# change and also weekly, because a profile nobody has pushed to in a month is
+# exactly the one whose links have gone stale.
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Mondays, 14:05 UTC. Off the hour, because the top of the hour is when
+    # every scheduled job on GitHub queues at once.
+    - cron: "5 14 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Lint Markdown
+        run: make lint
+
+      - name: Check that every link resolves for a logged-out visitor
+        run: make links
+
+      # This one needs to see the private repositories, which the default
+      # GITHUB_TOKEN cannot: it would list only the public ones, report no
+      # error, and pass having watched for nothing. check_repo_names refuses an
+      # empty watchlist for that reason, so rather than fail every run, this
+      # step announces that it did not run unless a token that can see them is
+      # configured. Create a fine-grained PAT with read access to repository
+      # metadata across all repositories and save it as INVENTORY_TOKEN.
+      - name: Check that no Markdown names a non-public repository
+        env:
+          GH_TOKEN: ${{ secrets.INVENTORY_TOKEN }}
+        run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::warning title=make names did not run::No INVENTORY_TOKEN secret is set, so the repository-inventory check was skipped. It is the only check that catches a bare project name in prose after that project stops being public. Run 'make names' locally, or add the secret. This is a gap, not a pass."
+            exit 0
+          fi
+          make names
