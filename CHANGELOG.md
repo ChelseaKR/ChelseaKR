@@ -6,6 +6,15 @@ is the git log.
 
 ## [Unreleased]
 
+- Stopped saying that Unitrans and Yolobus "are running a 90-day pilot of the
+  remediation handoff." They are not, and neither has agreed to anything. GTFS
+  Scorecard uses those two feeds as worked examples — its own docs call them
+  home-pilot examples — and separately has a 90-day remediation pilot that is
+  still recruiting: the recruit step is open, the pilot issue has no replies,
+  and the one piece of repair work done on those feeds is headed "independent
+  demonstration, not an agency-published change." Two unrelated senses of the
+  word "pilot" had been fused into a claim about two named public agencies
+  (2026-08-18).
 - Linked `mrf-honest` and `fare-policy-assistant` where "What I find in my own
   work" first names them. Every other project offered as evidence in that
   section was already a link. `mrf-honest` is public, and was the one project

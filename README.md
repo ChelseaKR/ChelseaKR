@@ -120,8 +120,10 @@ rather you take the repository's word for that than mine.
 - **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
   [gtfsscorecard.org](https://gtfsscorecard.org)) publishes daily, plain-language transit data
   quality grades over a registry of more than 2,100 feed records. Correctness comes from
-  MobilityData's canonical validator, not from a competing one. Unitrans and Yolobus are running a
-  90-day pilot of the remediation handoff.
+  MobilityData's canonical validator, not from a competing one. Unitrans and Yolobus are the two
+  feeds it runs as worked examples. The remediation handoff is a 90-day pilot that has not
+  recruited a participant yet, and the site badges those steps *Pilot* rather than counting them
+  as shipped.
 - **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** (evidence at
   [evals.chelseakr.com](https://evals.chelseakr.com)) answers rider questions about reduced-fare
   policy for eighteen California transit agencies. The assistant exists so that the public
