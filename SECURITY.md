@@ -1,11 +1,17 @@
 # Security policy
 
-This repository contains only my GitHub profile README and its supporting
-documentation. It has no executable code, no dependencies, no build pipeline,
-and no deployed service, so there is no conventional vulnerability surface
-here. The projects linked from the README each carry their own `SECURITY.md`
-with a real threat model — please report code vulnerabilities to the affected
-project, not here.
+This repository contains my GitHub profile README, its supporting
+documentation, and two small standard-library Python scripts under `tools/`
+that check the prose against reality. It ships no package, has no third-party
+dependencies, and runs no deployed service, so there is no conventional
+vulnerability surface here. The projects linked from the README each carry
+their own `SECURITY.md` with a real threat model — please report code
+vulnerabilities to the affected project, not here.
+
+The one thing here that runs on GitHub's infrastructure is
+`.github/workflows/verify.yml`. It is `contents: read` only, takes no input
+from a pull request, and the only secret it can see is `INVENTORY_TOKEN`,
+which needs nothing beyond read access to repository metadata.
 
 ## What to report here
 
