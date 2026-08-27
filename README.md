@@ -161,9 +161,10 @@ against the Energy Commission's published rules before anyone uploads it.
 Label against the format Title 20 prescribes, and judges nothing about the power mix on it.
 [`ca-tariff-parse`](https://github.com/ChelseaKR/ca-tariff-parse) turns a published electricity
 rate schedule into structured data carrying the document, page and line behind every value. And
-[`inspected`](https://github.com/ChelseaKR/inspected) asks how much of California's public
-wildfire damage-inspection record can be attributed to a published electric service territory,
-and answers that 37.9 percent of it cannot, with a confidence interval and no utility ranked.
+[`wildfire-service-territory-overlap`](https://github.com/ChelseaKR/wildfire-service-territory-overlap)
+asks how much of California's public wildfire damage-inspection record can be attributed to a
+published electric service territory, and answers that 37.9 percent of it cannot, with a
+confidence interval and no utility ranked.
 Each cites the published rule behind every finding and reports what it could not check as
 unvalidated rather than as a pass, which is why a spotless QFER filing comes back `UNVALIDATED`
 and not `PASS`.
