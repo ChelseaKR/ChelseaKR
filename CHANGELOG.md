@@ -6,6 +6,21 @@ is the git log.
 
 ## [Unreleased]
 
+- Followed the `inspected` rename to `wildfire-service-territory-overlap`. The
+  weekly `verify` run went red on 2026-08-24 having been green on the same
+  commit five days earlier, which is the failure mode ADR 0002 predicted: the
+  rename happened in the other repository, so nothing was committed here and
+  the page went stale on its own. Both checks caught it, from different angles
+  — `make links` saw a `github.com` redirect that changed the path, and
+  `make names` saw a link to a repository that is not in the public inventory
+  under that name (2026-08-26).
+
+- Gave this repository a license, which it had never had, and split it by what
+  it covers: `LICENSE` is CC BY 4.0 for the profile prose, and `tools/LICENSE`
+  is Apache-2.0 for the two checkers, matching the rest of the portfolio. With
+  no `LICENSE` at all, everything here was reserved by default and nobody could
+  quote the profile or reuse the checkers. Recorded as ADR 0003 (2026-08-26).
+
 - Stopped saying that Unitrans and Yolobus "are running a 90-day pilot of the
   remediation handoff." They are not, and neither has agreed to anything. GTFS
   Scorecard uses those two feeds as worked examples — its own docs call them
