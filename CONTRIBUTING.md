@@ -41,3 +41,19 @@ week, because most of what goes wrong here goes wrong without anyone touching
 this repository. `make names` needs credentials CI does not have by default; if
 an `INVENTORY_TOKEN` secret is not configured, the workflow says out loud that
 it did not run rather than reporting a pass.
+
+## License
+
+This repository holds two kinds of work, and they are licensed separately:
+
+- The profile prose — `README.md`, `CHANGELOG.md`, this file, `SECURITY.md`,
+  and everything under `docs/` — is
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), in `LICENSE`.
+  Quote it or adapt it; keep the attribution.
+- The checkers under `tools/` are [Apache-2.0](tools/LICENSE), the same license
+  the rest of my portfolio uses for code. If your own profile README keeps
+  printing repository names after a rename, take them.
+
+The reasoning is in
+[ADR 0003](docs/adr/0003-licensing-splits-prose-from-tools.md). A contribution
+is offered under whichever of the two covers the file it touches.

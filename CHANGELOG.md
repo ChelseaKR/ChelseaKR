@@ -15,6 +15,12 @@ is the git log.
   `make names` saw a link to a repository that is not in the public inventory
   under that name (2026-08-26).
 
+- Gave this repository a license, which it had never had, and split it by what
+  it covers: `LICENSE` is CC BY 4.0 for the profile prose, and `tools/LICENSE`
+  is Apache-2.0 for the two checkers, matching the rest of the portfolio. With
+  no `LICENSE` at all, everything here was reserved by default and nobody could
+  quote the profile or reuse the checkers. Recorded as ADR 0003 (2026-08-26).
+
 - Stopped saying that Unitrans and Yolobus "are running a 90-day pilot of the
   remediation handoff." They are not, and neither has agreed to anything. GTFS
   Scorecard uses those two feeds as worked examples — its own docs call them
