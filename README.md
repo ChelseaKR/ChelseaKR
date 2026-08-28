@@ -1,5 +1,10 @@
 # Chelsea Kelly-Reif 🏳️‍⚧️
 
+**Director of Engineering for [CiviForm](https://github.com/civiform/civiform) at
+[Exygy](https://github.com/Exygy).** CiviForm is open source. It is built by Exygy and Google.org
+with the City of Seattle and community contributors, and it exists so that applying for one
+government benefit does not mean answering the same questions again for the next one.
+
 I lead engineering for public-interest systems, and I still build them. Most of my public
 repositories are measurement tools: validators, scorecards, and evaluation harnesses pointed at
 real transit feeds, hospital price files, health-plan APIs, credential records, college
@@ -8,7 +13,6 @@ disclosures, and California energy filings.
 The interesting part is not how many there are. It is that each one is built so it can fail, and
 that when it does fail the failure is written down where you reach it before you reach the claim.
 
-Open to engineering leadership roles and to fractional consulting.
 [chelseakr.com](https://chelseakr.com) ·
 [LinkedIn](https://www.linkedin.com/in/chelseakr) · Davis, California
 
@@ -170,13 +174,19 @@ unvalidated rather than as a pass, which is why a spotless QFER filing comes bac
 and not `PASS`.
 
 These are independent personal projects, built since June 2026, with no proprietary or client
-material in them. AI agents are part of how I work: I choose the architecture, write the acceptance
+material in them. They are not CiviForm or Exygy work, and nothing in them speaks for
+either. AI agents are part of how I work: I choose the architecture, write the acceptance
 criteria, review the output, and decide what is ready to release. That is why this much exists in
 this little time, and it is the same discipline I would set for a team adopting these tools.
 
 ## Background
 
-Most recently I was a Senior Director of Engineering at [Coforma](https://coforma.io), one of three
+I am Director of Engineering for CiviForm at [Exygy](https://exygy.com), a digital services studio
+in San Francisco. CiviForm is a benefits application platform that reuses what an applicant has
+already told a government agency, so that a second program does not mean a second round of the same
+questions.
+
+Before Exygy I was a Senior Director of Engineering at [Coforma](https://coforma.io), one of three
 in a 50-person engineering organization, leading a 22-person reporting structure with five direct
 reports including three engineering directors, and owning the company-wide healthcare engineering
 portfolio. Nine engineers moved into senior or leadership roles under me, four of them to Director
@@ -207,16 +217,15 @@ registered member of Credential Engine's CTDL Advisory Group.
   and make the final call.
 - Accessibility, privacy, security, operability, and multilingual delivery are engineering
   requirements, not a later phase.
-- I am not considering federal contracting roles.
 
-## What I am looking for
+## Where my attention is
 
-Engineering leadership roles, VP of Engineering through Director or Principal Engineering Manager,
-and independent consulting in the same domains while I search: public health, workforce and social
-services, energy and utilities, state and local digital services, and responsible AI. I look for
-organizations whose work helps people the public systems routinely fail, and whose leadership
-reflects the communities they serve. Current technical center of gravity is TypeScript, Python,
-React and Next.js, AWS, PostgreSQL, data interoperability, and applied AI evaluation.
+CiviForm, and the repositories above. **I am not consulting and I am not looking for a role.**
+
+The domains I keep returning to are public health, workforce and social services, energy and
+utilities, state and local digital services, and responsible AI: work that helps the people public
+systems routinely fail. Current technical center of gravity is TypeScript, Python, React and
+Next.js, AWS, PostgreSQL, data interoperability, and applied AI evaluation.
 
 Reach me through [chelseakr.com](https://chelseakr.com) or
 [LinkedIn](https://www.linkedin.com/in/chelseakr).
