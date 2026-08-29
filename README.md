@@ -10,11 +10,21 @@ repositories are measurement tools: validators, scorecards, and evaluation harne
 real transit feeds, hospital price files, health-plan APIs, credential records, college
 disclosures, and California energy filings.
 
-The interesting part is not how many there are. It is that each one is built so it can fail, and
-that when it does fail the failure is written down where you reach it before you reach the claim.
-
 [chelseakr.com](https://chelseakr.com) ·
 [LinkedIn](https://www.linkedin.com/in/chelseakr) · Davis, California
+
+## How these got built
+
+Every public repository here was built since June 2026, and AI agents are part of how I work. I
+choose the architecture, write the acceptance criteria, review the output, and decide what is
+ready to release. That is why this much exists in this little time.
+
+It is also why so much of it is gates. The failure mode of working this way is a check that cannot
+fail and a green build that means nothing, so each project is built so that it can fail, and when
+it does the failure is written down where you reach it before you reach the claim.
+
+These are independent personal projects with no proprietary or client material in them. They are
+not CiviForm or Exygy work, and nothing in them speaks for either.
 
 ## What outside review changed
 
@@ -22,192 +32,130 @@ These projects have very few stars. What they have instead is a record of being 
 public.
 
 **A project's scope.** [Jannis (derhuerst)](https://github.com/derhuerst), a longtime open
-transit-data maintainer, [argued](https://github.com/ChelseaKR/gtfs-scorecard/issues/194) that GTFS
-Scorecard's scoring belonged inside MobilityData's canonical validator rather than in one more
-dashboard. He was substantially right. I compared the closest existing tools, named in the thread
-the ones I had duplicated, declined to push subjective letter grades into an official project where
-they would read as guidance, and narrowed this one to the handoff nobody else covers: a named fix
-request, a comparable recheck of the same published feed, and reproducible closure evidence.
+transit-data maintainer, [argued](https://github.com/ChelseaKR/gtfs-scorecard/issues/194) that
+GTFS Scorecard's scoring belonged inside MobilityData's canonical validator rather than in one
+more dashboard. He was substantially right. I named in the thread the tools I had duplicated,
+declined to push subjective letter grades into an official project where they would read as
+guidance, and narrowed this one to the handoff nobody else covers.
 
 **A scoring rule.** The person who produces the MRC de Joliette feed
 [pushed back](https://github.com/ChelseaKR/gtfs-scorecard/issues/180) on a recommendation to
-populate `trip_headsign` on loop routes. They were right. GTFS Best Practices discourage repeating
-the route name there, and that feed's blank headsigns were single-pattern frequency templates. I
-changed the rule so that case is credited instead of flagged, and the same thread shows the feed's
-score moving once the change landed.
+populate `trip_headsign` on loop routes. They were right, and the rule now credits that case
+instead of flagging it.
 
 Upstream, MobilityData merged a
 [specification example fix](https://github.com/MobilityData/transit-operational-data-standard/pull/147)
 to the Transit Operational Data Standard and an
 [awesome-transit listing](https://github.com/MobilityData/awesome-transit/pull/387). A
 [conformance-language clarification](https://github.com/MobilityData/transit-operational-data-standard/pull/156),
-a [second awesome-transit listing](https://github.com/MobilityData/awesome-transit/pull/389), and a
-[Transitland feed-archival PR](https://github.com/transitland/transitland-atlas/pull/2098) are
-open.
+a [second awesome-transit listing](https://github.com/MobilityData/awesome-transit/pull/389), and
+a [Transitland feed-archival PR](https://github.com/transitland/transitland-atlas/pull/2098) are
+open. Five small contributions, two of them merged. That is the whole claim.
+
+## Where to start
+
+There are more repositories here than anyone wants to browse. They fall into six groups, and each
+group has one worth reading first.
+
+- **Transit data.** Start with [`gtfs-scorecard`](https://github.com/ChelseaKR/gtfs-scorecard).
+  Then `tods-validate`, `fare-policy-assistant`, `transit-delivery-atlas`.
+- **California filings and public records.** Start with
+  [`qfer-preflight`](https://github.com/ChelseaKR/qfer-preflight). Then `power-content-check`,
+  `ca-tariff-parse`, `ceqa-preflight`, `permit-bearings`, `perimeter`,
+  `wildfire-service-territory-overlap`.
+- **Standards conformance.** Start with
+  [`ctdl-validate`](https://github.com/ChelseaKR/ctdl-validate). Then `oscal-validate`,
+  `fhir-scorecard`, `mrf-honest`, `ctdl-validate-jvm`.
+- **Education and workforce.** Start with [`afterward`](https://github.com/ChelseaKR/afterward).
+  Then `disclosed`, `homeroom`, `chalkline`.
+- **Evaluation gates and receipts.** Start with
+  [`plumbline`](https://github.com/ChelseaKR/plumbline). Then `gauntlet`, `cairn`, `sprout`,
+  `contextsafe`, `outcome-receipts`, `obligation-receipts`, `exitdrill`.
+- **Community and personal tools.** Start with
+  [`habitable`](https://github.com/ChelseaKR/habitable). Then `ledger`, `swelter`, `nearmiss`,
+  `id-churn-sentinel`, `davis-bike-hazard-map`, `queer-the-stacks`, `encore`, `family-greenhouse`,
+  `olive-bark-logger`, `lavender-rotation`.
+
+## Six that show the range
+
+Most are pre-1.0, and I would rather you take a repository's own word for its maturity than mine.
+
+- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
+  [gtfsscorecard.org](https://gtfsscorecard.org)) grades more than 2,100 curated transit feed
+  records daily in plain language. Correctness findings come from MobilityData's canonical
+  validator, not a competing one. Because it names public agencies it publishes a
+  [listing policy](https://github.com/ChelseaKR/gtfs-scorecard/blob/main/docs/listing-policy.md),
+  and its remediation handoff is badged *Pilot* because that pilot has not recruited a participant
+  yet.
+- **[tods-validate](https://github.com/ChelseaKR/tods-validate)** checks Transit Operational Data
+  Standard feeds, the crew runs and vehicle assignments GTFS does not cover, against TODS v2.1.0,
+  with rule IDs that are never renumbered and a GitHub Action so an agency gates a bad feed before
+  publishing. Reading that spec closely enough to write the rules is what produced the two upstream
+  TODS pull requests above.
+- **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** structurally validates CTDL
+  JSON-LD, the national credential-data standard, citing the published schema behind every finding,
+  as a CLI, a GitHub Action, and a browser
+  [playground](https://chelseakr.github.io/ctdl-validate/) that uploads nothing. Run against
+  [120 documents sampled from the public Credential Registry](https://github.com/ChelseaKR/ctdl-validate/blob/main/docs/findings/2026-08-15-published-registry-survey.md)
+  it returned forty ERROR findings, every one tracing to an inconsistency inside CTDL's own schema
+  encoding rather than to a publisher's mistake. That is a finding about the tool as much as about
+  the corpus, and the write-up leads with it.
+- **[afterward](https://github.com/ChelseaKR/afterward)** joins 3,266 California training programs
+  reported under WIOA to the state's own ten-year projection for the occupation each leads to, in
+  English and Spanish, with no account and no tracking. A suppressed or unreported outcome never
+  renders as zero, and how much the join actually covers is a published output rather than a
+  footnote.
+- **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** answers rider
+  questions about reduced-fare policy over a corpus covering eighteen California transit agencies.
+  The assistant exists so that the public evaluation harness has something to evaluate: 385 cases,
+  versioned prompts, a committed regression baseline, merge-blocking refusal and grounding gates,
+  and a standing record of what it has not measured, including that none of its 28 Spanish answers
+  has been rated.
+- **[habitable](https://github.com/ChelseaKR/habitable)** makes habitability evidence for tenant
+  unions tamper-evident with content hashes and RFC 3161 timestamps, then syncs peer to peer under
+  end-to-end encryption so there is no central holder to subpoena. Its own README says not to rely
+  on it for real legal matters yet, and I agree with it.
 
 ## What I find in my own work
 
 A tool that grades other people's work has no business shipping a check that cannot fail. Hunting
-those down in my own repositories is a standing part of how I build, and the commit messages
-say so.
+those down in my own repositories is a standing part of how I build.
 
-**A perfect score out of silence.**
 [`plumbline`](https://github.com/ChelseaKR/plumbline) is a fail-closed audit harness. A target that
-returned 174 blank responses scored 1.0000 on groundedness, privacy, representational harms,
-fairness, and cross-language, and the gate exited PASS on that alone, because each of those checks
+returned 174 empty responses scored 1.0000 on groundedness, privacy, representational harms,
+fairness and cross-language, and the gate exited PASS on that alone, because each of those checks
 is phrased as the absence of a bad thing and silence satisfies all of them.
 [The fix](https://github.com/ChelseaKR/plumbline/commit/5caf8e5b36094e9693e440dbd9a83d2dab0c34a7)
-splits the two kinds of check apart: behavior suites score silence as zero, absence suites report
-UNVERIFIABLE instead of passing, and a test now fails the build if a silent target ever passes
+splits the two kinds of check apart, and a test now fails the build if a silent target ever passes
 again.
 
-**The same shape, everywhere else.** Going looking for it across the rest of the repositories
-found it again and again, every instance green at the time.
-[`ceqa-preflight`](https://github.com/ChelseaKR/ceqa-preflight/commit/95db489acfb5)
-printed four PASS lines over a package whose PDFs had all timed out, byte-identical to the lines
-a clean package produces, and one of the four was the active-content check, so the report
-affirmatively cleared a document it had never opened. A weekly monitor in
+That same shape turned up again and again elsewhere, every instance green at the time.
+[`ceqa-preflight`](https://github.com/ChelseaKR/ceqa-preflight/commit/95db489acfb5) printed four
+PASS lines over a package whose PDFs had all timed out, one of them affirmatively clearing a
+document it had never opened. A weekly monitor in
 [`id-churn-sentinel`](https://github.com/ChelseaKR/id-churn-sentinel/commit/ad9a9cdf2472) went
-green four weeks running while its registry left zero of 152 sources eligible to check, because
-observing nothing emitted the same signals as observing no change. The two-person review gate in
-[`constituent-reconciler`](https://github.com/ChelseaKR/constituent-reconciler/commit/0a19009ce00a)
-was read by the review session and by neither apply path, so a merge under the strict policy pack
-went through on a single approver. And the CI lockfile check in these repositories ran only
-`uv sync --frozen`, which installs what the lockfile records and exits 0 no matter how far the
-lockfile has drifted from `pyproject.toml`; I measured that, fixed it everywhere it appeared, and
-corrected the
-[decision record](https://github.com/ChelseaKR/tods-validate/commit/ed96461bb0445050032a0b05cc740880066b10b8)
-that had asserted the opposite.
-
-**A statistic that could only come back perfect.**
-[`fare-policy-assistant`](https://github.com/ChelseaKR/fare-policy-assistant) published a
-judge-calibration agreement of 1.000 until I checked how it was computed. Every label that recorded
-a disagreement between the human and the judge had gone stale, so the surviving sample was the
-agreeing half. It now reports the coefficient as undefined, on 4 scored labels against a floor of
-37, on the evaluation report itself.
-
-The same rule applies to results. [`mrf-honest`](https://github.com/ChelseaKR/mrf-honest) broke
-twice on its first real cohort of hospital price files, on a CSV dialect the reader guessed instead
-of declaring and on a memory ceiling two large exports exceeded. Both breaks are on the front page
-of the repository, in the paragraph directly under the grades.
-
-## Measuring named organizations
-
-Several of these projects publish measurements about real, named institutions. That is only
-defensible with rules, so the rules are written down and enforced in code.
-
-- `ctdl-validate` validated
-  [120 documents sampled from the public Credential Registry](https://github.com/ChelseaKR/ctdl-validate/blob/main/docs/findings/2026-08-15-published-registry-survey.md).
-  Forty ERROR findings came back, and each one traced to an inconsistency inside CTDL's own
-  published schema encoding rather than to a mistake a publisher made. The write-up leads with
-  that, because it is a finding about the tool as much as about the corpus.
-- `fhir-scorecard` reviewed
-  [what 27 California health plans publish about their FHIR endpoints](https://github.com/ChelseaKR/fhir-scorecard/blob/main/docs/findings/2026-08-15-california-payer-cohort.md).
-  The roster was fixed from public directories before any endpoint was looked for, so the plans
-  that publish nothing are part of the result rather than an absence in it. Eight of the 27
-  publish a base URL the project could verify. None of it is a compliance determination, and the
-  document says so before it shows a number, because the federal rule does not require a plan to
-  print its base URL where an unregistered visitor can read it.
-- Every figure in those write-ups is recomputed from the committed evidence by a test that fails
-  the build when a number in the prose stops matching its data.
-- GTFS Scorecard grades public agencies by name, so it publishes a
-  [listing policy](https://github.com/ChelseaKR/gtfs-scorecard/blob/main/docs/listing-policy.md):
-  what gets listed and why, how to correct an entry, and that a removal request is honored without
-  argument.
-
-## A few of the projects
-
-The rest are on the [repositories tab](https://github.com/ChelseaKR?tab=repositories). These are
-the six that show the range. Most are pre-1.0, every one states its own maturity, and I would
-rather you take the repository's word for that than mine.
-
-- **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
-  [gtfsscorecard.org](https://gtfsscorecard.org)) publishes daily, plain-language transit data
-  quality grades over a registry of more than 2,100 feed records. Correctness comes from
-  MobilityData's canonical validator, not from a competing one. Unitrans and Yolobus are the two
-  feeds it runs as worked examples. The remediation handoff is a 90-day pilot that has not
-  recruited a participant yet, and the site badges those steps *Pilot* rather than counting them
-  as shipped.
-- **[fare-policy-assistant](https://github.com/ChelseaKR/fare-policy-assistant)** (evidence at
-  [evals.chelseakr.com](https://evals.chelseakr.com)) answers rider questions about reduced-fare
-  policy for eighteen California transit agencies. The assistant exists so that the public
-  evaluation harness has something to evaluate: versioned prompts, a committed regression baseline,
-  merge-blocking refusal and grounding gates, and mirrored English and Spanish cases a separate gate
-  holds to the same agency and the same required facts. It is beta, and it publishes what it has not
-  measured. The Spanish parity gate reads a perfect zero-point gap, and the repository says plainly
-  that the gate cannot see answer quality and that none of the 28 Spanish answers has been rated.
-- **[ctdl-validate](https://github.com/ChelseaKR/ctdl-validate)** is a deterministic structural
-  validator for CTDL JSON-LD, the national credential-data standard, with every finding cited to
-  the published schema. It runs as a CLI, as a GitHub Action, and in the browser through
-  WebAssembly at a [playground](https://chelseakr.github.io/ctdl-validate/) that uploads nothing.
-- **[fhir-scorecard](https://github.com/ChelseaKR/fhir-scorecard)** grades publicly observable FHIR
-  R4 endpoints daily on reachability and capability-statement transparency, from public metadata
-  and SMART discovery documents alone. It never authenticates and never touches patient data. It is
-  early, and it describes its own grades as observational snapshots of public surfaces rather than
-  audits, rankings, or statements about anyone's compliance.
-- **[disclosed](https://github.com/ChelseaKR/disclosed)** grades US colleges on what they disclose
-  rather than on how they perform, because a suppressed measure and a zero are different facts that
-  most tools render identically. In a 600-institution College Scorecard sample, 387 publish no
-  admission rate at all, and one publishes an admission rate of exactly zero. It has no tagged
-  release on purpose, and the
-  [decision record](https://github.com/ChelseaKR/disclosed/blob/master/docs/adr/0001-no-versioned-release.md)
-  says why: a release pipeline with nothing to release would be exactly the kind of gate that never
-  fails.
-- **[habitable](https://github.com/ChelseaKR/habitable)** is an alpha tool for tenant unions that
-  makes habitability evidence tamper-evident with content hashes and RFC 3161 timestamps, then
-  syncs peer to peer under end-to-end encryption so there is no central holder to subpoena. Its own
-  README says not to rely on it for real legal matters yet, and I agree with it.
-
-Four more are newer than the rest and all California energy and public-data work.
-[`qfer-preflight`](https://github.com/ChelseaKR/qfer-preflight) checks a QFER consumption filing
-against the Energy Commission's published rules before anyone uploads it.
-[`power-content-check`](https://github.com/ChelseaKR/power-content-check) checks a Power Content
-Label against the format Title 20 prescribes, and judges nothing about the power mix on it.
-[`ca-tariff-parse`](https://github.com/ChelseaKR/ca-tariff-parse) turns a published electricity
-rate schedule into structured data carrying the document, page and line behind every value. And
-[`wildfire-service-territory-overlap`](https://github.com/ChelseaKR/wildfire-service-territory-overlap)
-asks how much of California's public wildfire damage-inspection record can be attributed to a
-published electric service territory, and answers that 37.9 percent of it cannot, with a
-confidence interval and no utility ranked.
-Each cites the published rule behind every finding and reports what it could not check as
-unvalidated rather than as a pass, which is why a spotless QFER filing comes back `UNVALIDATED`
-and not `PASS`.
-
-These are independent personal projects, built since June 2026, with no proprietary or client
-material in them. They are not CiviForm or Exygy work, and nothing in them speaks for
-either. AI agents are part of how I work: I choose the architecture, write the acceptance
-criteria, review the output, and decide what is ready to release. That is why this much exists in
-this little time, and it is the same discipline I would set for a team adopting these tools.
+green four weeks running while zero of its 152 sources were eligible to check, because observing
+nothing emitted the same signals as observing no change.
 
 ## Background
 
-I am Director of Engineering for CiviForm at [Exygy](https://exygy.com), a digital services studio
-in San Francisco. CiviForm is a benefits application platform that reuses what an applicant has
-already told a government agency, so that a second program does not mean a second round of the same
-questions.
-
 Before Exygy I was a Senior Director of Engineering at [Coforma](https://coforma.io), one of three
-in a 50-person engineering organization, leading a 22-person reporting structure with five direct
-reports including three engineering directors, and owning the company-wide healthcare engineering
-portfolio. Nine engineers moved into senior or leadership roles under me, four of them to Director
-or Principal.
+in a 50-person engineering organization, leading a 22-person reporting structure and owning the
+company-wide healthcare engineering portfolio. Nine engineers moved into senior or leadership roles
+under me, four of them to Director or Principal.
 
-I was engineering lead and principal engineer for [MyCareer.NJ.gov](https://mycareer.nj.gov), New
-Jersey's statewide workforce platform, which has served 1.8 million users since December 2023. I
-set architecture across its three production codebases, ran a zero-downtime GCP to AWS migration,
-took test coverage from zero to the low nineties, cut known vulnerabilities by 94 percent, shipped
+Before that I was engineering lead and principal engineer for
+[MyCareer.NJ.gov](https://mycareer.nj.gov), New Jersey's statewide workforce platform, where I set
+architecture across three production codebases, ran a zero-downtime GCP to AWS migration, shipped
 full English and Spanish parity, and did the 2023 CTDL data modeling that began New Jersey's
-migration of its training-program registry into the national Credential Engine ecosystem, where
-those programs are live today. I also designed the platform's shared applied-AI foundation, which
-is in production, and six proof-of-concept features, which stayed gated from end users pending
-pilot approval. MyCareer.NJ.gov won the 2026 Labor Market Information Institute award for Best
-State LMI Focus on Impact and Sustainability, awarded to the New Jersey Department of Labor.
+migration of its training-program registry into the national Credential Engine ecosystem. Earlier I
+built public systems for the California Energy Commission, the California Public Utilities
+Commission, the California Department of Social Services, and UC Berkeley's Graduate School of
+Education. I am a registered member of Credential Engine's CTDL Advisory Group.
 
-Before that I built public systems for the California Energy Commission, the California Public
-Utilities Commission, the California Department of Social Services, and UC Berkeley's Graduate
-School of Education. I hold an M.S. in Software Engineering from CSU Fullerton, earned while
-working full time, and a B.S. in Computer Science from the University of Oregon, and I am a
-registered member of Credential Engine's CTDL Advisory Group.
+The domains I keep returning to are public health, workforce and social services, energy and
+utilities, state and local digital services, and responsible AI: work that helps the people public
+systems routinely fail.
 
 ## What I will and will not work on
 
@@ -221,11 +169,5 @@ registered member of Credential Engine's CTDL Advisory Group.
 ## Where my attention is
 
 CiviForm, and the repositories above. **I am not consulting and I am not looking for a role.**
-
-The domains I keep returning to are public health, workforce and social services, energy and
-utilities, state and local digital services, and responsible AI: work that helps the people public
-systems routinely fail. Current technical center of gravity is TypeScript, Python, React and
-Next.js, AWS, PostgreSQL, data interoperability, and applied AI evaluation.
-
 Reach me through [chelseakr.com](https://chelseakr.com) or
 [LinkedIn](https://www.linkedin.com/in/chelseakr).
