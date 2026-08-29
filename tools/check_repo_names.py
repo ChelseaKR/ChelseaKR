@@ -182,6 +182,28 @@ def linked_state(slug: str, token: str | None) -> tuple[str, str]:
     return "public", "public"
 
 
+def gh_token() -> str | None:
+    """The local `gh` credential, if there is one, for rate limit only.
+
+    Anonymous GitHub allows 60 requests an hour per IP, which two runs of this
+    can exhaust. CI always has GITHUB_TOKEN; a person running `make names`
+    locally has `gh`. Using it is safe because this never infers "public" from
+    a 200: it reads the `private` and `archived` fields, so a token that can
+    see more than a stranger still produces a stranger's answer.
+    """
+    try:
+        result = subprocess.run(
+            ["gh", "auth", "token"],
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return None
+    token = result.stdout.strip()
+    return token if result.returncode == 0 and token else None
+
+
 def check_links_only(root: Path, files: list[Path]) -> int:
     """Run only the half of this check that needs no privileged inventory.
 
@@ -192,7 +214,7 @@ def check_links_only(root: Path, files: list[Path]) -> int:
     been skipped along with it. This runs that half, and says plainly that the
     other one did not run rather than reporting a clean pass over both.
     """
-    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or None
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or gh_token()
     found: dict[str, list[str]] = {}
     for path in files:
         rel = path.relative_to(root)
