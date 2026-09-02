@@ -46,19 +46,35 @@ jobs:
       - name: Check that every link resolves for a logged-out visitor
         run: make links
 
-      # This one needs to see the private repositories, which the default
-      # GITHUB_TOKEN cannot: it would list only the public ones, report no
-      # error, and pass having watched for nothing. check_repo_names refuses an
-      # empty watchlist for that reason, so rather than fail every run, this
-      # step announces that it did not run unless a token that can see them is
-      # configured. Create a fine-grained PAT with read access to repository
+      # `make names` has two halves, and only one of them needs a privileged
+      # token. Until 2026-08-28 a missing INVENTORY_TOKEN skipped BOTH, so on
+      # every run since the workflow was added this step exited 0 having
+      # checked nothing at all -- no secret has ever been configured on this
+      # repository. That is the exact shape of check this profile keeps saying
+      # it will not ship.
+      #
+      # The half that needs nothing: every linked repository is public and not
+      # archived. `--links-only` asks the public API about each linked slug,
+      # using GITHUB_TOKEN for rate limit only and never to see more than a
+      # stranger would. It now runs on every build, and it fails.
+      - name: Check that every linked repository is public and not archived
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/check_repo_names.py --links-only
+
+      # The half that does need a token: bare project names sitting in prose
+      # with no URL attached, after that project stops being public. The
+      # default GITHUB_TOKEN cannot see private repositories -- it would list
+      # only the public ones, report no error, and pass having watched for
+      # nothing -- and check_repo_names refuses an empty watchlist for that
+      # reason. Create a fine-grained PAT with read access to repository
       # metadata across all repositories and save it as INVENTORY_TOKEN.
       - name: Check that no Markdown names a non-public repository
         env:
           GH_TOKEN: ${{ secrets.INVENTORY_TOKEN }}
         run: |
           if [ -z "${GH_TOKEN}" ]; then
-            echo "::warning title=make names did not run::No INVENTORY_TOKEN secret is set, so the repository-inventory check was skipped. It is the only check that catches a bare project name in prose after that project stops being public. Run 'make names' locally, or add the secret. This is a gap, not a pass."
+            echo "::warning title=the bare-name half of make names did not run::No INVENTORY_TOKEN secret is set. The linked-repository half ran in the previous step; this is the half that catches a bare project name in prose after that project stops being public. Run 'make names' locally, or add the secret. This is a gap, not a pass."
             exit 0
           fi
           make names
