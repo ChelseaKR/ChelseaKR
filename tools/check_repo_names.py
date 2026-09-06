@@ -47,9 +47,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 OWNER = "ChelseaKR"
@@ -136,6 +139,133 @@ def repo_inventory() -> tuple[set[str], dict[str, str]]:
     return public, withheld
 
 
+def linked_state(slug: str, token: str | None) -> tuple[str, str]:
+    """What a logged-out visitor gets for ``github.com/ChelseaKR/<slug>``.
+
+    Asks the public API about one named repository, which needs no credentials.
+    A token, when present, is used only to raise the anonymous rate limit --
+    never to see more than a stranger would. A repository the token cannot see
+    answers 404 either way, which is the answer we want.
+    """
+    request = urllib.request.Request(
+        f"https://api.github.com/repos/{OWNER}/{slug}",
+        headers={
+            "Accept": "application/vnd.github+json",
+            "User-Agent": f"{OWNER}-profile-check-repo-names",
+            **({"Authorization": f"Bearer {token}"} if token else {}),
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            data = json.loads(response.read())
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            return "missing", "not public (private, renamed, or deleted)"
+        if exc.code in (403, 429):
+            sys.exit(
+                f"check_repo_names: the GitHub API answered {exc.code} for "
+                f"{OWNER}/{slug}, which is the anonymous rate limit rather than "
+                "an answer about the repository. That is a FAILURE, not a skip: "
+                "a check that could not run is not a check that passed."
+            )
+        return "missing", f"HTTP {exc.code} {exc.reason}"
+    except (urllib.error.URLError, TimeoutError) as exc:
+        sys.exit(f"check_repo_names: could not reach the GitHub API: {exc}")
+
+    if data.get("archived"):
+        return "archived", "archived, so read-only"
+    if data.get("private"):
+        return "missing", "private"
+    full = data.get("full_name", "")
+    if full.lower() != f"{OWNER}/{slug}".lower():
+        return "renamed", f"renamed; it is now {full}"
+    return "public", "public"
+
+
+def gh_token() -> str | None:
+    """The local `gh` credential, if there is one, for rate limit only.
+
+    Anonymous GitHub allows 60 requests an hour per IP, which two runs of this
+    can exhaust. CI always has GITHUB_TOKEN; a person running `make names`
+    locally has `gh`. Using it is safe because this never infers "public" from
+    a 200: it reads the `private` and `archived` fields, so a token that can
+    see more than a stranger still produces a stranger's answer.
+    """
+    try:
+        result = subprocess.run(
+            ["gh", "auth", "token"],
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return None
+    token = result.stdout.strip()
+    return token if result.returncode == 0 and token else None
+
+
+def check_links_only(root: Path, files: list[Path]) -> int:
+    """Run only the half of this check that needs no privileged inventory.
+
+    ``make names`` has two halves (see the module docstring). The second --
+    bare project names in prose -- needs a token that can see private
+    repositories, which CI does not have. The first -- every linked repository
+    is public and not archived -- needs nothing but the public API, and had
+    been skipped along with it. This runs that half, and says plainly that the
+    other one did not run rather than reporting a clean pass over both.
+    """
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or gh_token()
+    found: dict[str, list[str]] = {}
+    for path in files:
+        rel = path.relative_to(root)
+        for lineno, line in enumerate(
+            path.read_text(encoding="utf-8").splitlines(), start=1
+        ):
+            for slug in LINK_RE.findall(line):
+                found.setdefault(slug.rstrip(".,);:"), []).append(f"{rel}:{lineno}")
+
+    # Finding no links at all is not a pass. This profile is made of them.
+    if not found:
+        print(
+            f"check_repo_names: no {OWNER} repository links found in "
+            f"{len(files)} Markdown file(s). That is not a pass -- this profile "
+            "links its projects, so finding none means the file selection is "
+            "broken.",
+            file=sys.stderr,
+        )
+        return 1
+
+    failures: list[str] = []
+    for slug in sorted(found):
+        state, reason = linked_state(slug, token)
+        if state != "public":
+            for where in found[slug]:
+                failures.append(f"{where}: links to {OWNER}/{slug}, which is {reason}")
+
+    if failures:
+        print(
+            f"check_repo_names: FAIL --- {len(failures)} link(s) to "
+            "repositories that are not public and active:\n",
+            file=sys.stderr,
+        )
+        for failure in sorted(set(failures)):
+            print(f"  {failure}", file=sys.stderr)
+        return 1
+
+    print(
+        f"check_repo_names: links OK --- {len(found)} linked {OWNER} "
+        f"repositor(y/ies) across {len(files)} Markdown file(s) are public and "
+        "not archived."
+    )
+    print(
+        "check_repo_names: NOT CHECKED --- bare project names in prose. That "
+        "half needs a token that can see private repositories; set "
+        "INVENTORY_TOKEN and drop --links-only to run it. This run says "
+        "nothing about it."
+    )
+    return 0
+
+
 def prose_pattern(name: str) -> re.Pattern[str]:
     """Match a repo slug and the ways prose writes it.
 
@@ -170,6 +300,15 @@ def main() -> int:
             "see private repositories rather than as an account without any."
         ),
     )
+    parser.add_argument(
+        "--links-only",
+        action="store_true",
+        help=(
+            "Check only that every linked repository is public and not "
+            "archived, using the public API and no privileged inventory. "
+            "Reports that the bare-name half did not run."
+        ),
+    )
     args = parser.parse_args()
 
     root = Path(
@@ -180,6 +319,9 @@ def main() -> int:
             check=True,
         ).stdout.strip()
     )
+    if args.links_only:
+        return check_links_only(root, markdown_files(root))
+
     public, withheld = repo_inventory()
     if not withheld and not args.inventory_may_be_public_only:
         sys.exit(

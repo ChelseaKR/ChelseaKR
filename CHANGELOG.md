@@ -6,6 +6,26 @@ is the git log.
 
 ## [Unreleased]
 
+- Split `make names` in CI so that the half of it needing no privileged token
+  actually runs. A missing `INVENTORY_TOKEN` had been skipping both halves, and
+  no such secret has ever been configured here, so from the day the workflow
+  was added that step exited 0 on every run having checked nothing. The linked-
+  repository half — every `github.com/ChelseaKR/<name>` link is public and not
+  archived — now runs on every build through a new `--links-only` mode that
+  uses only the public API. It catches what `make links` structurally cannot:
+  an archived repository answers 200. The bare-name-in-prose half still needs
+  the token and still warns. Recorded as an amendment to ADR 0002 (2026-08-28).
+
+- Checked every claim on the page against its source rather than assuming the
+  last pass held. The current role, the not-consulting-and-not-looking line,
+  and the separation of personal projects from Exygy and CiviForm work are all
+  correct as written. The figures were re-verified against the repositories
+  that produce them: `ctdl-validate`'s 120 documents and forty ERROR findings,
+  `fhir-scorecard`'s 27 plans and eight verified base URLs, `disclosed`'s 600
+  institutions and 387 with no admission rate, GTFS Scorecard's "more than
+  2,100 feed records", and the wildfire overlap's 37.9 percent over 132,522
+  records. None had drifted (2026-08-28).
+
 - Followed the `inspected` rename to `wildfire-service-territory-overlap`. The
   weekly `verify` run went red on 2026-08-24 having been green on the same
   commit five days earlier, which is the failure mode ADR 0002 predicted: the
