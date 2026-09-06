@@ -21,7 +21,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: verify-${{ github.ref }}
+  # Keyed per commit on a push and per ref on a pull request. A group holds one
+  # running run and one pending run; keyed on the ref alone every commit on main
+  # shares a slot, and a third push evicts the second before it dispatches a job --
+  # an absent verdict, not a red one. Pull requests keep the per-ref key so a new
+  # push to a branch still supersedes the run it replaced.
+  group: verify-${{ github.ref }}-${{ github.event_name == 'pull_request' && 'pr' || github.sha }}
   cancel-in-progress: true
 
 jobs:
@@ -42,6 +47,12 @@ jobs:
 
       - name: Lint Markdown
         run: make lint
+
+      # Runs before the network checks because it needs nothing and is instant:
+      # a broken concurrency key means some push to main got no verdict at all,
+      # and this is the only step here that can see that.
+      - name: Check every push-triggered workflow gets a per-commit slot
+        run: make concurrency
 
       - name: Check that every link resolves for a logged-out visitor
         run: make links
