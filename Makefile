@@ -1,9 +1,9 @@
 # This is a profile-README repository: the only artifact is Markdown prose.
 # `make verify` runs everything that can be checked mechanically here.
 
-.PHONY: verify lint names links
+.PHONY: verify lint names links concurrency
 
-verify: lint links names
+verify: lint links names concurrency
 
 lint:
 	npx --yes markdownlint-cli2@0.18.1
@@ -22,3 +22,10 @@ names:
 # that is the failure this exists to catch.
 links:
 	python3 tools/check_links.py
+
+# Fails if a workflow that runs on a push to a branch keys its concurrency group
+# on the ref alone. Every commit on main would share one slot, and a third push
+# evicts the second before it runs a single job -- a verdict that is absent
+# rather than red, which is why nothing surfaces it. Needs no credentials.
+concurrency:
+	python3 tools/check_workflow_concurrency.py
