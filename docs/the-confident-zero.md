@@ -45,8 +45,10 @@ return BackupVerification(str(backup), ok=all_ok, reason="" if all_ok else "fixi
 `all([])` is `True`. A replica holding a config file and a vault file but **none of the
 archive's content** audited zero bags, took the `True` branch, and came back `ok=True` with
 an empty reason string — because there was no failure to report. The gate that exists to
-prove the archive survived was satisfied by a replica proving nothing, and the shred went
-ahead.
+prove the archive survived was satisfied by a replica that proved nothing, and therefore
+authorised the shred. The module's current docstring puts it in exactly those terms: a partial
+rsync, an emptied replica disk, or a copy that stopped after the metadata *"read as 'your
+archive survived' and authorised the destruction of the only real copy."*
 
 The safety property the module documented was not enforced by the code implementing it.
 The fix is [pull request 207](https://github.com/ChelseaKR/ledger/pull/207), commit
