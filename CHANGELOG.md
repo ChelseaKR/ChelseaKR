@@ -6,6 +6,18 @@ is the git log.
 
 ## [Unreleased]
 
+- Two long-form pages under `docs/`, and a pointer to each from the README
+  (2026-09-07). `docs/the-confident-zero.md` writes up the defect class this
+  profile keeps alluding to — a read that did not happen published as if it
+  were a measurement — with nine instances from these repositories, each with
+  the file and the fix commit, plus the negative result that the static
+  detector I built for it caught five of eleven and its best rule is
+  unshippable. `docs/state-of-the-portfolio.md` is the status map the README
+  does not carry: seven packages on PyPI with their versions, twelve live
+  sites, which projects run on synthetic fixtures and say so, and what is
+  waiting on a person rather than on code. Every figure in both was re-taken
+  on 2026-09-07 and each names the command that produces it.
+
 - Split `make names` in CI so that the half of it needing no privileged token
   actually runs. A missing `INVENTORY_TOKEN` had been skipping both halves, and
   no such secret has ever been configured here, so from the day the workflow
