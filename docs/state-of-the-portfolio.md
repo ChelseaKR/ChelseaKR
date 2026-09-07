@@ -38,17 +38,26 @@ Seven of these are published on PyPI under my name:
 | [`gauntlet`](https://github.com/ChelseaKR/gauntlet) | 0.1.0 | `gauntlet-evals` |
 | [`outcome-receipts`](https://github.com/ChelseaKR/outcome-receipts) | 0.1.0 | `outcome-receipts` |
 
-Six of the seven match the version their repository declares. **`outcome-receipts` does not:**
-the repository declares `0.2.0` and carries a `v0.2.0` tag with signed artifacts, and PyPI
-still serves `0.1.0`. Anyone who installs it gets the older one. That is not a missing
-feature; it is a publish step that has not been run.
+**Five of the seven match the version their repository declares.** Two do not, and neither is a
+missing feature — each is a publish step that has not been run:
+
+- **`outcome-receipts`** declares `0.2.1` and carries signed `v0.2.0` and `v0.2.1` tags; PyPI
+  serves `0.1.0`.
+- **`gauntlet`** declares `0.2.0` and carries a signed `v0.2.0` tag with no GitHub Release
+  published behind it; PyPI serves `0.1.0`.
+
+Anyone who installs either gets the older one. Both of those tags were cut on 2026-09-07, hours
+before this page was written, which is exactly why the table above is dated and why the command
+that reproduces it is at the bottom: read the number from PyPI, not from this sentence.
 
 Everything else on this profile you have to clone. Several repositories hold a distribution
 name that is free or already mine and have simply never published.
 
 ## Live
 
-These answered `200` to a logged-out request on 2026-09-07:
+Twenty-four of the forty-four repositories declare a homepage, and on 2026-09-07 every one of
+those twenty-four answered `200` to a logged-out request. These twelve are the ones where the
+site *is* the thing:
 
 - [gtfsscorecard.org](https://gtfsscorecard.org) — daily GTFS scorecards
 - [afterward.chelseakr.com](https://afterward.chelseakr.com) — California training programs
@@ -69,8 +78,12 @@ These answered `200` to a logged-out request on 2026-09-07:
 - [chelseakr.github.io/perimeter/](https://chelseakr.github.io/perimeter/) — wildfire dataset
   coverage
 
-That is twelve sites out of forty-four repositories. Most of this is a command-line tool or a
-library, on purpose.
+The other twelve pages are documentation or published evidence for something you would
+otherwise run locally: `cairn`, `chalkline`, `fare-policy-assistant`, `habitable`,
+`id-churn-sentinel`, `permit-bearings`, `sprout`, `swelter`, `tods-validate`,
+`trans-docs-navigator`, `transit-delivery-atlas`, and this profile itself. So half of these
+repositories put something on the web and most of them are still a command-line tool or a
+library, on purpose — the page is the receipt, not the product.
 
 ## Real data, and not
 
@@ -163,6 +176,11 @@ gh repo list ChelseaKR --limit 100 --json name,visibility,isFork,stargazerCount
 
 # published version of any package above
 curl -s https://pypi.org/pypi/outcome-receipts/json | python3 -c 'import json,sys; print(json.load(sys.stdin)["info"]["version"])'
+
+# every declared homepage, and whether it answers
+gh repo list ChelseaKR --limit 200 --json name,visibility,isFork,homepageUrl \
+  | python3 -c 'import json,sys; [print(r["name"], r["homepageUrl"]) for r in json.load(sys.stdin) if r["visibility"]=="PUBLIC" and not r["isFork"] and r["homepageUrl"]]' \
+  | while read -r name url; do printf "%s %s %s\n" "$(curl -s -o /dev/null -w '%{http_code}' -L "$url")" "$name" "$url"; done
 
 # the corpus expiry, from the committed files
 git clone --depth 1 https://github.com/ChelseaKR/trans-docs-navigator
