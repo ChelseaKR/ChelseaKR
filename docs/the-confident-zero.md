@@ -238,11 +238,12 @@ answering a question that was not the one at risk.
 
 That is why a static rule finds so few of them, which I will come back to.
 
-There is a second, quieter pattern: **the narrowest output surface is the one that lies.** A
-report body can say `engines executed: none` while the verdict line says `clean` and the exit
-code says `0`. Whichever surface a human or a CI job actually reads is the one that has to
-carry the absence, and that is usually the one-line summary or the exit code — the surface
-with the least room in it.
+There is a second, quieter pattern: **the narrowest output surface is the one that lies.**
+Receipt 9 is the clearest case — a document reading "No gate ran. This pack establishes
+nothing about the target." above a machine-readable field saying `passed=true`. The prose had
+room for the absence and carried it; the field a CI job actually reads did not. Whichever
+surface is narrowest — a one-line summary, a boolean, an exit code — is the one that has to
+be able to say *nothing was learned*, and it is the one that usually cannot.
 
 ## The vocabulary problem, measured
 
@@ -290,9 +291,11 @@ everything harder to read for no gain.
 ## The part where I built the detector and it did not work
 
 I wrote a static detector for this class — a semgrep pack plus two AST checks — and ran it
-across the portfolio, including against reconstructed **pre-fix** versions of nine of the
-defect files. It caught **5 of 11** at the exact line, using three different rules, one of
-which is unshippable.
+across the portfolio. Because most of the defects were already fixed by then, I reconstructed
+the **pre-fix** versions of nine files out of `git` into a scratch corpus so the detector had
+something real to find. Against twelve confirmed instances, eleven of them testable this way,
+it caught **five at the exact line**, using three different rules, one of which is
+unshippable.
 
 The two rules worth keeping are narrow. "An outcome enum with a verdict-shaped member and no
 absence member" produced exactly one report across the whole portfolio, and it was a defect
@@ -354,15 +357,17 @@ every suite being observed failing on a defect planted for it.
 
 - **That this is a new idea.** It is not. The contribution here is a set of measured instances
   with the fix commits attached, and a negative result about tooling for them.
-- **That any of this is widely used.** My public repositories have 49 stars between them. The
+- **That any of this is widely used.** My public repositories have 48 stars between them. The
   work is worth reading because it is checkable, not because anyone has adopted it.
 - **That anyone else publishes numbers like this.** Every instance above is from my own
   repositories, found in my own code, and that is deliberate: it is what makes the class
   discussable without pointing at people who have no duty to defend the artifacts they
   publish.
-- **That the class is now handled.** Two sites of the same shape are open in `ledger` alone,
-  left unfixed on purpose because each changes a published contract, and the decisions belong
-  to a person rather than to a patch.
+- **That the class is now handled.** Two more sites of the same shape are open in `ledger`
+  alone and recorded rather than patched, because each changes a published contract: a
+  `/healthz` endpoint that answers `all_verified` over zero bags, and a hand-off manifest that
+  tells a volunteer inheriting the archive *"All bags verified intact at hand-off time."* over
+  the same nothing. Those are decisions, not defects.
 
 ---
 
