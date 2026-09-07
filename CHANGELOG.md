@@ -6,6 +6,14 @@ is the git log.
 
 ## [Unreleased]
 
+- Dropped a project from the "Evaluation gates and receipts" list in "Where to
+  start" (2026-09-07). It went private and archived partway through this change,
+  and `make links` caught the link but not the bare name in that list, because
+  the bare-name half of `make names` needs a token CI does not have. That is the
+  exact failure `tools/check_repo_names.py` was written for — three projects were
+  named in prose here after they stopped being public on 2026-08-15 — and it
+  currently runs only where somebody remembers to run it.
+
 - Two long-form pages under `docs/`, and a pointer to each from the README
   (2026-09-07). `docs/the-confident-zero.md` writes up the defect class this
   profile keeps alluding to — a read that did not happen published as if it

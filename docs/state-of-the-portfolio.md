@@ -10,11 +10,15 @@ and what is stuck waiting on a person rather than on code.
 ## Reach
 
 ```text
-45 public repositories of my own, plus 5 forks
-49 stars across all of them
+44 public repositories of my own, plus 5 forks
+48 stars across all of them
 ```
 
 `gh repo list ChelseaKR --limit 100 --json name,visibility,isFork,stargazerCount`.
+
+That count moves. One project went private and archived between the first draft of this page
+and the run of `make links` that checked it, which is the reason every figure here is stamped
+with a date and given with the command that reproduces it rather than written down as a fact.
 
 Nobody depends on this work. There is no user base, no download count worth quoting, and no
 adoption story. If a number on this profile ever suggests otherwise, it is wrong and I would
@@ -65,7 +69,7 @@ These answered `200` to a logged-out request on 2026-09-07:
 - [chelseakr.github.io/perimeter/](https://chelseakr.github.io/perimeter/) — wildfire dataset
   coverage
 
-That is twelve sites out of forty-five repositories. Most of this is a command-line tool or a
+That is twelve sites out of forty-four repositories. Most of this is a command-line tool or a
 library, on purpose.
 
 ## Real data, and not
@@ -75,8 +79,6 @@ wrote, and the ones that do say so in their own README rather than leaving you t
 
 - [`exitdrill`](https://github.com/ChelseaKR/exitdrill) — *"technical alpha · synthetic data
   only"*, in the status line of its README
-- [`contextsafe`](https://github.com/ChelseaKR/contextsafe) — runs on the synthetic fixtures
-  that ship inside the package
 - [`obligation-receipts`](https://github.com/ChelseaKR/obligation-receipts) — *"offline CLI and
   synthetic demonstration"*
 - [`habitable`](https://github.com/ChelseaKR/habitable) — real tool, and its

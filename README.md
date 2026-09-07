@@ -70,7 +70,7 @@ group has one worth reading first.
   Then `disclosed`, `homeroom`, `chalkline`.
 - **Evaluation gates and receipts.** Start with
   [`plumbline`](https://github.com/ChelseaKR/plumbline). Then `gauntlet`, `cairn`, `sprout`,
-  `contextsafe`, `outcome-receipts`, `obligation-receipts`, `exitdrill`.
+  `outcome-receipts`, `obligation-receipts`, `exitdrill`.
 - **Community and personal tools.** Start with
   [`habitable`](https://github.com/ChelseaKR/habitable). Then `ledger`, `swelter`, `nearmiss`,
   `id-churn-sentinel`, `davis-bike-hazard-map`, `queer-the-stacks`, `encore`, `family-greenhouse`,

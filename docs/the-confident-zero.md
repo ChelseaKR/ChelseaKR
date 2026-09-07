@@ -250,17 +250,17 @@ Once you start fixing these, you need a word for "we did not learn anything here
 is no standard one. So everybody invents it, repeatedly.
 
 I ran a lexical scan over the first-party source of my own public repositories on 2026-09-07:
-44 of my 45 public repositories are checked out locally; the scan looked at 1,904 source
+43 of my 44 public repositories are checked out locally; the scan looked at 1,862 source
 files under `src/`, `lib/`, `app/`, `tools/` and similar directories, skipping tests,
 fixtures, vendored code and build output, for any of 34 absence tokens as whole words. The
 result:
 
 | Measure | Count |
 |---|---:|
-| Repositories scanned | 44 |
-| Repositories carrying at least one absence token | 43 |
-| Repositories carrying five or more distinct tokens | 29 |
-| Distinct tokens from the 34-token lexicon in use | 30 |
+| Repositories scanned | 43 |
+| Repositories carrying at least one absence token | 42 |
+| Repositories carrying five or more distinct tokens | 28 |
+| Distinct tokens from the 34-token lexicon in use | 29 |
 | Repositories using `not_comparable` | 4 |
 
 That is a coarse instrument and I would not defend the exact numbers to a decimal place — a
