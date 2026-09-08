@@ -50,8 +50,13 @@ Anyone who installs either gets the older one. Both of those tags were cut on 20
 before this page was written, which is exactly why the table above is dated and why the command
 that reproduces it is at the bottom: read the number from PyPI, not from this sentence.
 
-Everything else on this profile you have to clone. Several repositories hold a distribution
-name that is free or already mine and have simply never published.
+Nothing else here installs from a package index; several repositories hold a distribution name
+that is free or already mine and have simply never published. That is not the same as "nothing
+else ships", and a query shaped around semantic versions will tell you it is. `afterward`
+publishes date-tagged **dataset** releases on a cadence — `dataset-2026-08-04`, `-08-07`,
+`-08-17` — and an Accepted ADR records why a semver pipeline is not applicable to it: nothing
+consumes an afterward *version*, and the thing released is the data. Read a repository's own
+releases page rather than inferring from the absence of a `vX.Y.Z` tag.
 
 ## Live
 
