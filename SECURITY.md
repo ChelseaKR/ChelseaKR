@@ -26,5 +26,5 @@ which needs nothing beyond read access to repository metadata.
 
 Email **<ckellyreif@gmail.com>** with `ChelseaKR profile security` in the
 subject, or open a public issue on this repository if the problem is not
-sensitive (bad links usually are not). Expect an acknowledgement within a few
+sensitive (bad links usually are not). Expect an acknowledgment within a few
 days; this is a personal repository maintained on volunteer time.
