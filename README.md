@@ -80,7 +80,7 @@ group has one worth reading first.
 
 Most are pre-1.0, and I would rather you take a repository's own word for its maturity than mine.
 [State of the portfolio](docs/state-of-the-portfolio.md) is the honest map, re-measured on
-2026-09-07: what is installable, what is live, what is a synthetic demonstration, and what is
+2026-09-18: what is installable, what is live, what is a synthetic demonstration, and what is
 waiting on a person rather than on code.
 
 - **[GTFS Scorecard](https://github.com/ChelseaKR/gtfs-scorecard)** (live at
@@ -142,8 +142,8 @@ nothing emitted the same signals as observing no change.
 
 I have written the whole class up, with nine instances and the fix commits attached, in
 [The confident zero](docs/the-confident-zero.md). It includes the part that is least flattering
-and most useful: I built a static detector for this shape, it caught five of eleven, and its
-highest-recall rule is the one I cannot ship.
+and most useful: I built a static detector for this shape, it missed more of them than it caught,
+and its highest-recall rule is the one I cannot ship.
 
 ## Background
 

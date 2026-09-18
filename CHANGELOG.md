@@ -15,16 +15,19 @@ is the git log.
   currently runs only where somebody remembers to run it.
 
 - Two long-form pages under `docs/`, and a pointer to each from the README
-  (2026-09-07). `docs/the-confident-zero.md` writes up the defect class this
+  (2026-09-18). `docs/the-confident-zero.md` writes up the defect class this
   profile keeps alluding to — a read that did not happen published as if it
   were a measurement — with nine instances from these repositories, each with
   the file and the fix commit, plus the negative result that the static
-  detector I built for it caught five of eleven and its best rule is
-  unshippable. `docs/state-of-the-portfolio.md` is the status map the README
-  does not carry: seven packages on PyPI with their versions, twelve live
-  sites, which projects run on synthetic fixtures and say so, and what is
-  waiting on a person rather than on code. Every figure in both was re-taken
-  on 2026-09-07 and each names the command that produces it.
+  detector I built for it missed more than it caught and its best rule is
+  unshippable. That detector run is not published, so the page keeps what it
+  taught and leaves out every figure from it; the census of absence
+  vocabulary comes out for the same reason, and the checkable table of named
+  vocabularies stays. `docs/state-of-the-portfolio.md` is the status map the
+  README does not carry: seven packages on PyPI with their versions, fourteen
+  live sites, which projects run on synthetic fixtures and say so, and what is
+  waiting on a person rather than on code. Every figure on it was re-taken on
+  2026-09-18, and it names the command that produces each.
 
 - Split `make names` in CI so that the half of it needing no privileged token
   actually runs. A missing `INVENTORY_TOKEN` had been skipping both halves, and
