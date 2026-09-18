@@ -1,6 +1,6 @@
 # State of the portfolio
 
-*Measured 2026-09-07. Every figure on this page was taken from a live query or a repository
+*Measured 2026-09-18. Every figure on this page was taken from a live query or a repository
 on that date, and the command that produces it is named so you can re-take it.*
 
 There are a lot of repositories on this profile and most of them are pre-1.0. This page is the
@@ -10,11 +10,11 @@ and what is stuck waiting on a person rather than on code.
 ## Reach
 
 ```text
-44 public repositories of my own, plus 5 forks
-48 stars across all of them
+47 public repositories of my own, plus 9 forks
+50 stars across all of them
 ```
 
-`gh repo list ChelseaKR --limit 100 --json name,visibility,isFork,stargazerCount`.
+`gh repo list ChelseaKR --limit 200 --json name,visibility,isFork,stargazerCount`.
 
 That count moves. One project went private and archived between the first draft of this page
 and the run of `make links` that checked it, which is the reason every figure here is stamped
@@ -35,33 +35,27 @@ Seven of these are published on PyPI under my name:
 | [`nearmiss`](https://github.com/ChelseaKR/nearmiss) | 0.4.0 | `nearmiss-safety` |
 | [`habitable`](https://github.com/ChelseaKR/habitable) | 0.4.0 | `habitable` |
 | [`cairn`](https://github.com/ChelseaKR/cairn) | 0.3.0 | `cairn-assistant` |
-| [`gauntlet`](https://github.com/ChelseaKR/gauntlet) | 0.1.0 | `gauntlet-evals` |
-| [`outcome-receipts`](https://github.com/ChelseaKR/outcome-receipts) | 0.1.0 | `outcome-receipts` |
+| [`gauntlet`](https://github.com/ChelseaKR/gauntlet) | 0.3.0 | `gauntlet-evals` |
+| [`outcome-receipts`](https://github.com/ChelseaKR/outcome-receipts) | 0.2.2 | `outcome-receipts` |
 
-**Five of the seven match the version their repository declares.** Two do not, and neither is a
-missing feature — each is a publish step that has not been run:
-
-- **`outcome-receipts`** declares `0.2.1` and carries signed `v0.2.0` and `v0.2.1` tags; PyPI
-  serves `0.1.0`.
-- **`gauntlet`** declares `0.2.0` and carries a signed `v0.2.0` tag with no GitHub Release
-  published behind it; PyPI serves `0.1.0`.
-
-Anyone who installs either gets the older one. Both of those tags were cut on 2026-09-07, hours
-before this page was written, which is exactly why the table above is dated and why the command
-that reproduces it is at the bottom: read the number from PyPI, not from this sentence.
+**All seven match the version their repository declares.** On 2026-09-07 only five did:
+`outcome-receipts` and `gauntlet` each carried a signed tag that had not been published, so
+anyone installing either got an older release. Both have been published since. That is exactly
+why the table above is dated and why the command that reproduces it is at the bottom: read the
+number from PyPI, not from this sentence.
 
 Nothing else here installs from a package index; several repositories hold a distribution name
 that is free or already mine and have simply never published. That is not the same as "nothing
 else ships", and a query shaped around semantic versions will tell you it is. `afterward`
-publishes date-tagged **dataset** releases on a cadence — `dataset-2026-08-04`, `-08-07`,
-`-08-17` — and an Accepted ADR records why a semver pipeline is not applicable to it: nothing
-consumes an afterward *version*, and the thing released is the data. Read a repository's own
-releases page rather than inferring from the absence of a `vX.Y.Z` tag.
+publishes date-tagged **dataset** releases on a cadence — five so far, `dataset-2026-08-04`
+through `dataset-2026-09-18` — and an Accepted ADR records why a semver pipeline is not
+applicable to it: nothing consumes an afterward *version*, and the thing released is the data.
+Read a repository's own releases page rather than inferring from the absence of a `vX.Y.Z` tag.
 
 ## Live
 
-Twenty-four of the forty-four repositories declare a homepage, and on 2026-09-07 every one of
-those twenty-four answered `200` to a logged-out request. These twelve are the ones where the
+Twenty-eight of the forty-seven repositories declare a homepage, and on 2026-09-18 every one of
+those twenty-eight answered `200` to a logged-out request. These fourteen are the ones where the
 site *is* the thing:
 
 - [gtfsscorecard.org](https://gtfsscorecard.org) — daily GTFS scorecards
@@ -71,6 +65,10 @@ site *is* the thing:
 - [nearmiss.chelseakr.com/fars/national/](https://nearmiss.chelseakr.com/fars/national/) — the
   FARS conflict atlas
 - [familygreenhouse.net](https://familygreenhouse.net) — household plant care
+- [nexthomegame.com](https://nexthomegame.com) — calendar feeds for women's pro and college
+  sports
+- [chelseakr.github.io/ca-fish-planting-alerts/](https://chelseakr.github.io/ca-fish-planting-alerts/)
+  — California trout-planting alerts and per-water stocking history
 - [chelseakr.github.io/ctdl-validate/](https://chelseakr.github.io/ctdl-validate/) — a browser
   playground that uploads nothing
 - [chelseakr.github.io/disclosed/](https://chelseakr.github.io/disclosed/) — higher-education
@@ -83,25 +81,26 @@ site *is* the thing:
 - [chelseakr.github.io/perimeter/](https://chelseakr.github.io/perimeter/) — wildfire dataset
   coverage
 
-The other twelve pages are documentation or published evidence for something you would
-otherwise run locally: `cairn`, `chalkline`, `fare-policy-assistant`, `habitable`,
-`id-churn-sentinel`, `permit-bearings`, `sprout`, `swelter`, `tods-validate`,
-`trans-docs-navigator`, `transit-delivery-atlas`, and this profile itself. So half of these
-repositories put something on the web and most of them are still a command-line tool or a
-library, on purpose — the page is the receipt, not the product.
+The other fourteen are documentation or published evidence for something you would otherwise
+run locally: `cairn`, `chalkline`, `fare-policy-assistant`, `habitable`, `id-churn-sentinel`,
+`permit-bearings`, `sprout`, `swelter`, `tods-validate`, `trans-docs-navigator`,
+`transit-delivery-atlas`, and this profile itself, plus two whose homepage points back at a
+page on GitHub (`outcome-receipts` and `gtfs-scorecard-action-smoke`). So more than half of
+these repositories put something on the web, and most of them are still a command-line tool or
+a library, on purpose — the page is the receipt, not the product.
 
 ## Real data, and not
 
 Some of these run against data a public body actually published. Others run against fixtures I
 wrote, and the ones that do say so in their own README rather than leaving you to find out:
 
-- [`exitdrill`](https://github.com/ChelseaKR/exitdrill) — *"technical alpha · synthetic data
-  only"*, in the status line of its README
+- [`exitdrill`](https://github.com/ChelseaKR/exitdrill) — *"synthetic data only"*, in the status
+  line of its README
 - [`obligation-receipts`](https://github.com/ChelseaKR/obligation-receipts) — *"offline CLI and
   synthetic demonstration"*
 - [`habitable`](https://github.com/ChelseaKR/habitable) — real tool, and its
   [live demo](https://habitable.chelseakr.com/) runs on synthetic data; its README's own status
-  line lists *"no independent security/legal review, real tenant-union pilot"* among what is
+  line lists *"No independent security/legal review, real tenant-union pilot"* among what is
   still missing
 - [`nearmiss`](https://github.com/ChelseaKR/nearmiss) — the committed city datasets are
   synthetic; the 2020–2024 NHTSA FARS reference surface is real
@@ -127,7 +126,7 @@ Adding those together against the real clock:
 records                      688
 verified                     530
 needs_reverification         158
-already past SLA 2026-09-07  170
+already past SLA 2026-09-18  172
 lapse in October 2026        508
 last record expires          2026-12-04
 sole verifier on record      "Pilot Seed Reviewer"
@@ -139,22 +138,25 @@ so on 4 December every page it serves will say the same thing: needs reverificat
 not a bug to fix. It is one person's afternoon per state, and there is no code that can supply
 it.
 
-**The GTFS remediation handoff has no pilot participant.** It is badged *Pilot* on
-[`gtfs-scorecard`](https://github.com/ChelseaKR/gtfs-scorecard) for that reason, and it stays
-badged that way until an agency actually walks through it.
+**The GTFS remediation handoff has no pilot participant.** Its recheck step is badged *Pilot*
+on [gtfsscorecard.org](https://gtfsscorecard.org) for that reason, the
+[call for a participant](https://github.com/ChelseaKR/gtfs-scorecard/issues/185) is still open,
+and it stays badged that way until an agency, vendor or support program actually walks through
+it.
 
 **No Spanish answer in the fare assistant has been rated by a qualified speaker.**
 [`fare-policy-assistant`](https://github.com/ChelseaKR/fare-policy-assistant) ships a
-bilingual corpus and a 385-case evaluation harness, and its own EVALS record says the
-bilingual-parity gate is currently failing. Spanish review is the open gate across several
-projects here, including my own site.
+bilingual corpus and a 385-case evaluation harness. Its own README says 0 of its 28 Spanish
+answers are rated, and that the bilingual-parity gate has failed on the full suite every night
+since 2026-08-22 ([issue 165](https://github.com/ChelseaKR/fare-policy-assistant/issues/165)).
+Spanish review is the open gate across several projects here, including my own site.
 
 **The community-run systems have no community running them.**
 [`ledger`](https://github.com/ChelseaKR/ledger) is a preservation system designed for a
-community to run itself, and no community runs it yet;
-[`swelter`](https://github.com/ChelseaKR/swelter) is the same shape for heat and air quality.
-Both are honest about it in the first line of their descriptions. Neither can be finished by
-writing more code.
+community to run itself, and its description opens by saying no community runs it yet.
+[`swelter`](https://github.com/ChelseaKR/swelter) is the same shape for heat and air quality,
+and its description says the live map is atmospheric model output, not physical sensors.
+Neither can be finished by writing more code.
 
 **A batch of engineering-standards changes is waiting on a governance attestation only I can
 give.** The gate is deliberate and it is working as designed — the attestation is a human
@@ -169,15 +171,15 @@ its word than mine. Read that line before you read anything else. Where a projec
 
 The three things I would be most careful about: nothing here has had an independent security
 review; the Spanish content across the portfolio has not been reviewed by a qualified native
-speaker; and every "grade" this portfolio publishes about a named organisation is computed
-from that organisation's own published files, which is a narrow claim and is written to stay
+speaker; and every "grade" this portfolio publishes about a named organization is computed
+from that organization's own published files, which is a narrow claim and is written to stay
 narrow.
 
 ## How to check this page
 
 ```sh
 # reach
-gh repo list ChelseaKR --limit 100 --json name,visibility,isFork,stargazerCount
+gh repo list ChelseaKR --limit 200 --json name,visibility,isFork,stargazerCount
 
 # published version of any package above
 curl -s https://pypi.org/pypi/outcome-receipts/json | python3 -c 'import json,sys; print(json.load(sys.stdin)["info"]["version"])'
