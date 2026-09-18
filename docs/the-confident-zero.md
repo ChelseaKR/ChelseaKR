@@ -23,7 +23,7 @@ real instances underneath it, and what actually found them.
 
 ## Nine receipts
 
-### 1. A shred gate that authorised destruction on the strength of an empty check
+### 1. A shred gate that authorized destruction on the strength of an empty check
 
 [`ledger`](https://github.com/ChelseaKR/ledger) is a digital preservation system for a
 community archive. It has a lockdown mode for a raid or a seizure, and one of the things
@@ -46,9 +46,9 @@ return BackupVerification(str(backup), ok=all_ok, reason="" if all_ok else "fixi
 archive's content** audited zero bags, took the `True` branch, and came back `ok=True` with
 an empty reason string — because there was no failure to report. The gate that exists to
 prove the archive survived was satisfied by a replica that proved nothing, and therefore
-authorised the shred. The module's current docstring puts it in exactly those terms: a partial
+authorized the shred. The module's current docstring puts it in exactly those terms: a partial
 rsync, an emptied replica disk, or a copy that stopped after the metadata *"read as 'your
-archive survived' and authorised the destruction of the only real copy."*
+archive survived' and authorized the destruction of the only real copy."*
 
 The safety property the module documented was not enforced by the code implementing it.
 The fix is [pull request 207](https://github.com/ChelseaKR/ledger/pull/207), commit
@@ -80,12 +80,14 @@ against a literal.** It is now one line —
 [`tests/test_statistics.py`](https://github.com/ChelseaKR/mrf-honest/blob/master/tests/test_statistics.py)
 asserts `Z_95 == 1.959963984540054` against line 26 of
 [`statistics.py`](https://github.com/ChelseaKR/mrf-honest/blob/master/src/mrf_honest/statistics.py)
-— and it is the only test in that file that would have caught it.
+— and it is the only test in that file that would have caught it. The pin landed in commit
+[`a39ad9d`](https://github.com/ChelseaKR/mrf-honest/commit/a39ad9d); the 31 tests are the
+ones in that file at its parent.
 
 ### 3. `"up": "false"` counted as a day the endpoint answered
 
 [`fhir-scorecard`](https://github.com/ChelseaKR/fhir-scorecard) publishes an availability
-percentage for named healthcare organisations' public FHIR endpoints. It keeps a rolling
+percentage for named healthcare organizations' public FHIR endpoints. It keeps a rolling
 window of `{"date": ..., "up": ...}` observations, and both readers of that window tested
 truthiness:
 
@@ -148,6 +150,8 @@ contains a bad thing. So it never matches, so it passes. The first fix tested
 `response.strip()` and did not close the case of a single period, an emoji, or a zero-width
 space — all non-empty strings, all equally devoid of content, all scoring the same perfect
 mark. "Not empty" and "contains something a check can read" are different properties.
+Commit [`af7035d`](https://github.com/ChelseaKR/plumbline/commit/af7035d) closes that second
+hole, and its message records the first.
 
 ### 6. A diff tool that reported "No published value moved" having compared nothing
 
@@ -166,12 +170,12 @@ comparison in which no value was compared, and two paths that are the same file.
 `2` with nothing on stdout, so a caller reading `--json` never receives an object describing a
 comparison that was not made. The reasoning is in the module docstring of
 [`artifact_diff.py`](https://github.com/ChelseaKR/wildfire-service-territory-overlap/blob/main/src/wildfire_service_territory_overlap/artifact_diff.py),
-and its best line is *nothing compared is not nothing moved*.
+and its best line is *Nothing compared is not nothing moved.*
 
 ### 7. A missing key that would have re-minted 134 stable identifiers, and exited 0
 
 [`chalkline`](https://github.com/ChelseaKR/chalkline) publishes California educator
-credential authorisations as CTDL JSON-LD. Identifier stability is the entire promise: a
+credential authorizations as CTDL JSON-LD. Identifier stability is the entire promise: a
 CTID, once minted for a thing, must keep pointing at that thing.
 
 `load_ledger` read the committed key-to-CTID mapping with `document.get("ctids", {})`. Two
@@ -182,8 +186,10 @@ the function cannot read.
 
 Downstream, `mint_missing` treats every key in an empty mapping as unassigned, mints a fresh
 UUIDv4 for each, and `save_ledger` writes the result over the file. A corrupted ledger would
-therefore have been *repaired* by re-minting all 134 identifiers, exiting `0`, and reporting
-the new count as a successful run, with none of the committed CTIDs surviving.
+therefore have been *repaired* by re-minting all 134 identifiers in the
+[committed ledger](https://github.com/ChelseaKR/chalkline/blob/main/data/ctid-ledger.json),
+exiting `0`, and reporting the new count as a successful run, with none of the committed CTIDs
+surviving.
 [`ctid.py`](https://github.com/ChelseaKR/chalkline/blob/main/src/chalkline/ctid.py) now keeps
 the two absences apart, and says why in the error message.
 
@@ -247,41 +253,24 @@ room for the absence and carried it; the field a CI job actually reads did not. 
 surface is narrowest — a one-line summary, a boolean, an exit code — is the one that has to
 be able to say *nothing was learned*, and it is the one that usually cannot.
 
-## The vocabulary problem, measured
+## The vocabulary problem
 
 Once you start fixing these, you need a word for "we did not learn anything here", and there
-is no standard one. So everybody invents it, repeatedly.
+is no standard one. So everybody invents it, repeatedly. Across my own repositories nearly
+every project that needed one invented its own, and no two invented the same one.
 
-I ran a lexical scan over the first-party source of my own public repositories on 2026-09-07:
-43 of my 44 public repositories are checked out locally; the scan looked at 1,862 source
-files under `src/`, `lib/`, `app/`, `tools/` and similar directories, skipping tests,
-fixtures, vendored code and build output, for any of 34 absence tokens as whole words. The
-result:
-
-| Measure | Count |
-|---|---:|
-| Repositories scanned | 43 |
-| Repositories carrying at least one absence token | 42 |
-| Repositories carrying five or more distinct tokens | 28 |
-| Distinct tokens from the 34-token lexicon in use | 29 |
-| Repositories using `not_comparable` | 4 |
-
-That is a coarse instrument and I would not defend the exact numbers to a decimal place — a
-token can appear in a comment, and a repository can spell one concept two ways. The shape is
-what matters, and the shape is that essentially every project invented this vocabulary
-independently, and no two invented the same one.
-
-The named vocabularies are checkable, and reading them side by side is more useful than the
-census:
+The named vocabularies are checkable, and reading them side by side makes the point better
+than a count would. Each link is pinned to the commit it was read at, so the line numbers
+hold:
 
 | The need | The answer, and where |
 |---|---|
-| A cell absent for different reasons | `CellState = PRESENT / EXPLICIT_UNKNOWN / NOT_RECORDED` — [`perimeter/src/perimeter/cells.py:61`](https://github.com/ChelseaKR/perimeter/blob/main/src/perimeter/cells.py) |
-| A figure that may not be a figure | `MeasureStatus = REPORTED / SUPPRESSED / NOT_REPORTED` — [`homeroom/src/homeroom/measures.py:55`](https://github.com/ChelseaKR/homeroom/blob/main/src/homeroom/measures.py) |
-| A rule that was applicable and did not run | `SkipReason` — [`ceqa-preflight/src/ceqa_preflight/models.py:37`](https://github.com/ChelseaKR/ceqa-preflight/blob/main/src/ceqa_preflight/models.py) |
-| A verdict that must not be rendered | `verdict_withheld` — [`gauntlet/src/gauntlet/results.py:129`](https://github.com/ChelseaKR/gauntlet/blob/main/src/gauntlet/results.py) |
-| A report qualified by its own scope | `RunCoverage` — [`tods-validate/src/tods_validate/rules/__init__.py:991`](https://github.com/ChelseaKR/tods-validate/blob/main/src/tods_validate/rules/__init__.py) |
-| A vocabulary that deliberately has no such word | `Verdict = PASS / FAIL`, absent data fails closed — [`sprout/src/sprout/eval/suite.py:47`](https://github.com/ChelseaKR/sprout/blob/main/src/sprout/eval/suite.py) |
+| A cell absent for different reasons | `CellState = PRESENT / EXPLICIT_UNKNOWN / NOT_RECORDED` — [`perimeter/src/perimeter/cells.py:61`](https://github.com/ChelseaKR/perimeter/blob/f59e0fe638e1ad794b4948b607470970db7c1e43/src/perimeter/cells.py#L61) |
+| A figure that may not be a figure | `MeasureStatus = REPORTED / SUPPRESSED / NOT_REPORTED` — [`homeroom/src/homeroom/measures.py:55`](https://github.com/ChelseaKR/homeroom/blob/6f113e142f341a2171541a1cc332f0b1673bc6a7/src/homeroom/measures.py#L55) |
+| A rule that was applicable and did not run | `SkipReason` — [`ceqa-preflight/src/ceqa_preflight/models.py:37`](https://github.com/ChelseaKR/ceqa-preflight/blob/3eaed55532cec51e7b9220c9f61e966ae26fddb7/src/ceqa_preflight/models.py#L37) |
+| A verdict that must not be rendered | `verdict_withheld` — [`gauntlet/src/gauntlet/results.py:161`](https://github.com/ChelseaKR/gauntlet/blob/a822ca679921df1944b027b3e28f62836546a060/src/gauntlet/results.py#L161) |
+| A report qualified by its own scope | `RunCoverage` — [`tods-validate/src/tods_validate/rules/__init__.py:1024`](https://github.com/ChelseaKR/tods-validate/blob/189283410e562cf9350970f7fb8e1f35515a4aea/src/tods_validate/rules/__init__.py#L1024) |
+| A vocabulary that deliberately has no such word | `Verdict = PASS / FAIL`, absent data fails closed — [`sprout/src/sprout/eval/suite.py:47`](https://github.com/ChelseaKR/sprout/blob/b8ee02b0f6c5a22b3863d340a1dd6b76f19e601b/src/sprout/eval/suite.py#L47) |
 
 The last row is the one that makes this a design table rather than a style rule. **There are
 two correct answers, not one.** Widen the vocabulary so the state can be named, or fail closed
@@ -294,49 +283,46 @@ everything harder to read for no gain.
 
 I wrote a static detector for this class — a semgrep pack plus two AST checks — and ran it
 across the portfolio. Because most of the defects were already fixed by then, I reconstructed
-the **pre-fix** versions of nine files out of `git` into a scratch corpus so the detector had
-something real to find. Against twelve confirmed instances, eleven of them testable this way,
-it caught **five at the exact line**, using three different rules, one of which is
+the **pre-fix** versions of the affected files out of `git` so the detector had something real
+to find. It missed more of them than it caught, and one of the rules that did catch them is
 unshippable.
 
 The two rules worth keeping are narrow. "An outcome enum with a verdict-shaped member and no
-absence member" produced exactly one report across the whole portfolio, and it was a defect
-already on the list — zero false positives, zero new findings. "A verdict returned straight
-from an unguarded `all()`" produced six hits across thirteen repositories, three of them in
-`ledger`, including
+absence member" reported only a defect that was already on the list: no false positives, and
+no new findings. "A verdict returned straight from an unguarded `all()`" flagged
 [`lockdown.py`](https://github.com/ChelseaKR/ledger/blob/main/src/ledger/lockdown.py) at the
-exact line of receipt 1 — **nineteen days before it was fixed**. The audit recorded it as a
-structural fact rather than a defect, because nobody had checked whether the audit could
-actually return empty in practice. It could.
+exact line of receipt 1 — **before it was fixed**. The audit recorded it as a structural fact
+rather than a defect, because nobody had checked whether the audit could actually return empty
+in practice. It could.
 
 Everything else measured badly:
 
 - A rule for bare `float()` at a boundary caught the `homeroom` defect at the exact line, and
-  918 other things. There is no mechanical way to distinguish a boundary parse from an
-  arithmetic cast.
-- A rule for `max()` over two failure populations had 100% recall and 20% precision. Adding
-  the obvious precision filter took recall to zero. There is no version of that rule that is
-  both usable and useful.
-- The rule for two-way identity tests on a multi-state enum produced its **highest** alert
-  volume on `perimeter` — the repository that models absence best — because a project with a
-  three-state cell type compares enum members constantly and correctly. Its noise was
-  inversely proportional to the bug it was looking for.
+  far too much else to be usable. There is no mechanical way to distinguish a boundary parse
+  from an arithmetic cast.
+- A rule for `max()` over two failure populations found every instance it was aimed at and was
+  mostly noise. Adding the obvious precision filter made it find none of them. There is no
+  version of that rule that is both usable and useful.
+- The rule for two-way identity tests on a multi-state enum alerted **most** on `perimeter` —
+  the repository that models absence best — because a project with a
+  [three-state cell type](https://github.com/ChelseaKR/perimeter/blob/main/src/perimeter/cells.py)
+  compares enum members constantly and correctly. Its noise was inversely proportional to the
+  bug it was looking for.
 
 The last one is the observation I have not seen made elsewhere, and it is the reason I did
 not ship the pack as a linter. A tool that claims to cover "absence rendered as a value" and
 silently passes on the shapes it cannot see would be an instance of its own bug class: a gate
 reporting clean because it only looked in one bucket.
 
-**The honest summary is that the sweep was worth far more than the tool, and the tool's best
-rule was the one I could not ship.** Six of the eleven defects are missing *checks* rather
-than missing *states* — the absence of a guard between two correct lines, the absence of a
-`Content-Length` comparison, the absence of a `coverage` parameter on one of four output
-formatters. An absent check is not a token. It has no location. There is nothing to match.
+**The honest summary is that the sweep was worth far more than the tool, and the tool's
+highest-recall rule was the one I could not ship.** What it could not see were missing
+*checks* rather than missing *states* — the absence of a guard between two correct lines, the
+absence of a `Content-Length` comparison, the absence of a `coverage` parameter on an output
+formatter. An absent check is not a token. It has no location. There is nothing to match.
 
-*The detector run summarised in this section is from an internal audit dated 2026-08-19 that
-is not published, so unlike everything else on this page you cannot re-run it from a
-repository. Either that audit's measurement tables ship alongside this page, or this section
-comes out.*
+*The detector run behind this section is from an internal audit that is not published. So
+this section gives what the run taught rather than what it measured: every figure from it is
+left out, because you could not check it. The code it points at is linked.*
 
 ## What actually finds them
 
@@ -345,13 +331,14 @@ Running the thing with nothing in it.
 Since a static rule cannot see a missing check, the only reliable instrument is to supply the
 input the fixture never supplies — the empty archive, the empty diff, the dead endpoint, the
 suppressed cell — and see whether the gate still says yes. That is a test convention, not a
-lint rule, and it generalises to a discipline: **a check is not trusted until it has been
+lint rule, and it generalizes to a discipline: **a check is not trusted until it has been
 observed failing.**
 
 That discipline has its own write-up, with the procedure and the six distinct ways a negative
-control can lie to you: *Observed failing, or it is not a gate*, in `plumbline`'s `docs/`
-directory. `plumbline` also carries the discipline as a committed artifact rather than a
-description of one —
+control can lie to you: *Observed failing, or it is not a gate*, in `plumbline`'s
+[`docs/negative-controls.md`](https://github.com/ChelseaKR/plumbline/blob/main/docs/negative-controls.md).
+`plumbline` also carries the discipline as a committed artifact rather than a description of
+one —
 [`proof/matrix.md`](https://github.com/ChelseaKR/plumbline/blob/main/proof/matrix.md) records
 every suite being observed failing on a defect planted for it.
 
@@ -359,17 +346,23 @@ every suite being observed failing on a defect planted for it.
 
 - **That this is a new idea.** It is not. The contribution here is a set of measured instances
   with the fix commits attached, and a negative result about tooling for them.
-- **That any of this is widely used.** My public repositories have 48 stars between them. The
-  work is worth reading because it is checkable, not because anyone has adopted it.
+- **That any of this is widely used.** My public repositories had 50 stars between them on
+  2026-09-18; [State of the portfolio](state-of-the-portfolio.md#how-to-check-this-page) has the
+  command that re-takes it. The work is worth reading because it is checkable, not because
+  anyone has adopted it.
 - **That anyone else publishes numbers like this.** Every instance above is from my own
   repositories, found in my own code, and that is deliberate: it is what makes the class
   discussable without pointing at people who have no duty to defend the artifacts they
   publish.
-- **That the class is now handled.** Two more sites of the same shape are open in `ledger`
-  alone and recorded rather than patched, because each changes a published contract: a
-  `/healthz` endpoint that answers `all_verified` over zero bags, and a hand-off manifest that
-  tells a volunteer inheriting the archive *"All bags verified intact at hand-off time."* over
-  the same nothing. Those are decisions, not defects.
+- **That the class is now handled.** Even in `ledger` the last of it ended in a decision
+  rather than a fix. Of the two further sites of the same shape found there
+  ([issue 208](https://github.com/ChelseaKR/ledger/issues/208)), the hand-off runbook no longer
+  tells a volunteer *"All bags verified intact at hand-off time."* over an archive with nothing
+  in it. The anonymous `/healthz` still answers `all_verified` over zero bags, on purpose: an
+  honest answer would tell an outsider the archive is empty, which is the fact the endpoint
+  exists to withhold. Its docstring in
+  [`server.py`](https://github.com/ChelseaKR/ledger/blob/main/src/ledger/server.py) records
+  that trade, and a steward gets the three-state verdict instead.
 
 ---
 
