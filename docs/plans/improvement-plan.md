@@ -65,7 +65,7 @@ on every single run, having looked at nothing. Green, and watching for nothing â
 the exact shape of check the README spends four paragraphs refusing to ship,
 sitting in this repository's own CI.
 
-The skip was honestly labelled, and ADR 0002 wrote the gap down. But the label
+The skip was honestly labeled, and ADR 0002 wrote the gap down. But the label
 was wrong about one thing: it treated `make names` as one check. It is two, and
 only one of them needs the privileged token.
 
