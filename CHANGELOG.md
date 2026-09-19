@@ -6,6 +6,15 @@ is the git log.
 
 ## [Unreleased]
 
+- Rewrote the top of the page to follow chelseakr.com: the same headline, the same first
+  paragraph, the five government programs in the same order with the site's own statement of
+  scope, the leadership figures, and the public-projects list with the site's status labels
+  (Afterward, Homeroom, Trout Truck, Next Home Game, Family Greenhouse, Transit Delivery Atlas,
+  GTFS Scorecard, fhir-scorecard, TODS Validate, ctdl-validate). Every URL was taken from the
+  site's own anchors. The earlier "Background" opening paragraph moved into "How I lead" and
+  the rest of that section is now "Earlier work". The outside-review, defect-class, and
+  will-and-will-not sections, and the not-consulting line, are unchanged.
+
 - Dropped a project from the "Evaluation gates and receipts" list in "Where to
   start" (2026-09-07). It went private and archived partway through this change,
   and `make links` caught the link but not the bare name in that list, because

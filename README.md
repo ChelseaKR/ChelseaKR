@@ -1,17 +1,118 @@
 # Chelsea Kelly-Reif 🏳️‍⚧️
 
-**Director of Engineering for [CiviForm](https://github.com/civiform/civiform) at
-[Exygy](https://github.com/Exygy).** CiviForm is open source. It is built by Exygy and Google.org
-with the City of Seattle and community contributors, and it exists so that applying for one
-government benefit does not mean answering the same questions again for the next one.
+**Engineering leader for government digital services.**
+Director of Engineering for [CiviForm](https://github.com/civiform/civiform) at
+[Exygy](https://github.com/Exygy).
 
-I lead engineering for public-interest systems, and I still build them. Most of my public
-repositories are measurement tools: validators, scorecards, and evaluation harnesses pointed at
-real transit feeds, hospital price files, health-plan APIs, credential records, college
-disclosures, and California energy filings.
+I've built and led engineering for benefit applications, a statewide career platform, Medicaid and
+CHIP reporting to CMS, and California's energy-data filings. I learned the work inside California
+government, and I still write code.
 
 [chelseakr.com](https://chelseakr.com) ·
+[Resume (PDF)](https://chelseakr.com/files/Chelsea_Kelly-Reif_Resume.pdf) ·
 [LinkedIn](https://www.linkedin.com/in/chelseakr) · Davis, California
+
+## Government programs I've led and shaped
+
+What each program is, who it serves, my role, and what the public record shows. Results belong to
+the teams that built them; my part is stated as scope.
+
+- **[CiviForm](https://github.com/civiform/civiform)** (Exygy, 2026 to present). Open-source
+  software that lets a government offer one application for many benefit programs, reusing what an
+  applicant has already entered. Four city and state governments run it in production, including
+  Seattle and Arkansas. I have been Director of Engineering since August 2026, leading engineering
+  for the platform. The four-person team ships on a biweekly release train.
+- **[MyCareer.NJ.gov](https://mycareer.nj.gov)** (Coforma, 2022 to 2026). New Jersey's statewide
+  career and training platform, in English and Spanish: career exploration, training programs with
+  their outcomes, and job search. I was engineering lead and principal engineer from an early
+  prototype to a statewide service, and primary engineer across its three production codebases. It
+  has recorded 1.8 million active users since December 2023. I did the 2023 data modeling that
+  began the state's move to Credential Engine's CTDL standard, and its training programs are live
+  in the Registry today.
+- **[Medicaid and CHIP Data Collection Tools (MDCT)](https://github.com/Enterprise-CMCS?q=macpro-mdct)**
+  (Coforma, 2025 to 2026). CMS's open-source suite of seven applications that states and
+  territories use to report Medicaid and CHIP program data. I owned engineering for the suite
+  within Coforma's healthcare portfolio: direction, standards, and the conditions for delivery.
+  Feature leads did the hands-on build. The team took a new CMS Rural Health Transformation
+  application from zero to first production in about eight weeks, and all seven applications
+  shipped production releases in 2026 while I led the portfolio.
+- **[Medicaid Drug Programs (MDP)](https://chelseakr.com/health)**
+  (Coforma, 2025 to 2026). The CMS system behind the Medicaid Drug Rebate Program. Drug
+  manufacturers report product and pricing data through it, and CMS uses that data to calculate the
+  rebates owed to state Medicaid agencies. About 780 manufacturers participate. My role was
+  oversight within the same healthcare portfolio; a partner's technical leads ran implementation.
+- **[Data Submission Portal (DSP)](https://chelseakr.com/energy)** (California Energy
+  Commission, 2019 to 2022). The Energy Commission's secure, cloud-based portal for filing
+  regulatory energy data, starting with petroleum and quarterly fuel-and-energy reports. As Lead
+  Software Engineer I architected and shipped it on AWS and helped lead the commission's cloud
+  modernization. The commission later expanded the platform across the agency and into residential
+  solar-permit reporting.
+
+## How I lead
+
+I lead managers and senior engineers, and I stay close enough to the architecture to answer for it.
+
+At Coforma I was a Senior Director of Engineering, one of three in a 50-person engineering
+organization, and I owned the company-wide healthcare engineering portfolio. My reporting structure
+was 22 people, with five direct reports, three of them Directors. Nine engineers were promoted
+within it, four to Director or Principal, and three people left voluntarily in three years.
+
+The practices I put in place cover planning, hiring, delivery, and growth. On MyCareer.NJ.gov,
+accessibility, security, and bilingual parity became part of the release path, and automated test
+coverage went from zero to 93 to 96 percent while security vulnerabilities fell 94 percent. At
+CiviForm I supervise two Google.org fellowship workstreams alongside the engineering team.
+
+## Public projects I build and run
+
+Independent work on my own time, built in the open on public data. The status beside each one says
+how far along it is. Most of my public repositories are measurement tools: validators,
+scorecards, and evaluation harnesses pointed at real transit feeds, hospital price files,
+health-plan APIs, credential records, college disclosures, and California energy filings. These
+are personal projects with no proprietary or client material in them.
+They are not CiviForm or Exygy work, and nothing in them speaks for either. Most are pre-1.0, and I
+would rather you take a repository's own word for its maturity than mine.
+[State of the portfolio](docs/state-of-the-portfolio.md) is the honest map, re-measured on
+2026-09-18: what is installable, what is live, what is a synthetic demonstration, and what is
+waiting on a person rather than on code.
+
+### Live products
+
+- [Afterward](https://afterward.chelseakr.com) ([source](https://github.com/ChelseaKR/afterward)),
+  beta. 3,266 California training programs joined to the state's own job projections, in English
+  and Spanish, with no account.
+- [Homeroom](https://homeroom.chelseakr.com) ([source](https://github.com/ChelseaKR/homeroom)),
+  live. California public school data for every active school, 10,534 of them, readable by the
+  families it describes, in English and Spanish.
+- [Trout Truck](https://chelseakr.github.io/ca-fish-planting-alerts/)
+  ([source](https://github.com/ChelseaKR/ca-fish-planting-alerts)), beta. California's trout
+  planting schedule, with a stocking history for each water, rebuilt daily from the Department of
+  Fish and Wildlife's weekly schedule.
+- [Next Home Game](https://nexthomegame.com)
+  ([source](https://github.com/ChelseaKR/womens-sports-calendar)), live. Calendar feeds for
+  women's pro and college sports, by league and team, updated nightly.
+- [Family Greenhouse](https://familygreenhouse.net)
+  ([source](https://github.com/ChelseaKR/family-greenhouse)), live. A shared plant-care journal
+  for households: watering schedules, care tasks, and reminders. Free accounts and paid plans.
+- [Transit Delivery Atlas](https://transit.chelseakr.com)
+  ([source](https://github.com/ChelseaKR/transit-delivery-atlas)), early release. A source-linked
+  crosswalk of California's transit executive order, N-7-26, directive by directive.
+
+### Open-source scorecards and validators
+
+- [GTFS Scorecard](https://gtfsscorecard.org)
+  ([source](https://github.com/ChelseaKR/gtfs-scorecard)), live beta. Daily plain-language quality
+  grades for more than 2,100 public transit feed records, with a GitHub Action and a read API.
+- [fhir-scorecard](https://fhir.chelseakr.com/)
+  ([source](https://github.com/ChelseaKR/fhir-scorecard)), beta. Daily grades for public FHIR
+  health-data endpoints, with every finding cited to the spec.
+- [TODS Validate](https://chelseakr.github.io/tods-validate/)
+  ([source](https://github.com/ChelseaKR/tods-validate)), beta. A validator for the Transit
+  Operational Data Standard, as a command-line tool, a GitHub Action, and a browser playground.
+- [ctdl-validate](https://chelseakr.github.io/ctdl-validate/)
+  ([source](https://github.com/ChelseaKR/ctdl-validate)), beta. Checks CTDL credential records
+  against the published rules before they go to the Credential Registry.
+
+Every project, with its evidence, is on [chelseakr.com/work](https://chelseakr.com/work).
 
 ## How these got built
 
@@ -145,12 +246,7 @@ I have written the whole class up, with nine instances and the fix commits attac
 and most useful: I built a static detector for this shape, it missed more of them than it caught,
 and its highest-recall rule is the one I cannot ship.
 
-## Background
-
-Before Exygy I was a Senior Director of Engineering at [Coforma](https://coforma.io), one of three
-in a 50-person engineering organization, leading a 22-person reporting structure and owning the
-company-wide healthcare engineering portfolio. Nine engineers moved into senior or leadership roles
-under me, four of them to Director or Principal.
+## Earlier work
 
 Before that I was engineering lead and principal engineer for
 [MyCareer.NJ.gov](https://mycareer.nj.gov), New Jersey's statewide workforce platform, where I set
