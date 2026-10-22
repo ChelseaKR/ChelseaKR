@@ -83,13 +83,13 @@ waiting on a person rather than on code.
 - [Homeroom](https://homeroom.chelseakr.com) ([source](https://github.com/ChelseaKR/homeroom)),
   live. California public school data for every active school, 10,534 of them, readable by the
   families it describes, in English and Spanish.
-- [Trout Truck](https://chelseakr.github.io/ca-fish-planting-alerts/)
+- [Trout Truck](https://trouttruck.com)
   ([source](https://github.com/ChelseaKR/ca-fish-planting-alerts)), beta. California's trout
   planting schedule, with a stocking history for each water, rebuilt daily from the Department of
   Fish and Wildlife's weekly schedule.
 - [Next Home Game](https://nexthomegame.com)
-  ([source](https://github.com/ChelseaKR/womens-sports-calendar)), live. Calendar feeds for
-  women's pro and college sports, by league and team, updated nightly.
+  ([source](https://github.com/ChelseaKR/womens-sports-calendar)), live. Calendar feeds for WNBA,
+  NWSL, PWHL, AUSL and Big Ten women's basketball, by league and team, updated nightly.
 - [Family Greenhouse](https://familygreenhouse.net)
   ([source](https://github.com/ChelseaKR/family-greenhouse)), live. A shared plant-care journal
   for households: watering schedules, care tasks, and reminders. Free accounts and paid plans.
