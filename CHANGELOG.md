@@ -6,6 +6,10 @@ is the git log.
 
 ## [Unreleased]
 
+- Pointed the Trout Truck link at trouttruck.com instead of the old github.io address, and named the
+  leagues in the Next Home Game line (WNBA, NWSL, PWHL, AUSL and Big Ten women's basketball), to
+  match what the live site lists.
+
 - Rewrote the top of the page to follow chelseakr.com: the same headline, the same first
   paragraph, the five government programs in the same order with the site's own statement of
   scope, the leadership figures, and the public-projects list with the site's status labels
